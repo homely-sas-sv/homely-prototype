@@ -1,0 +1,213 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Describir Problema - Homely</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#e4c193",
+                        "on-primary-container": "#501f00",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#6a635b",
+                        "surface-container-high": "#f7e5d7",
+                        "inverse-on-surface": "#ffeee0",
+                        "on-secondary": "#ffffff",
+                        "outline": "#897268",
+                        "surface-container": "#fdebdc",
+                        "inverse-primary": "#ffb690",
+                        "on-surface": "#231a11",
+                        "surface-bright": "#fff8f4",
+                        "error": "#ba1a1a",
+                        "on-background": "#231a11",
+                        "surface-variant": "#f1dfd1",
+                        "primary-fixed": "#ffdbca",
+                        "error-container": "#ffdad6",
+                        "surface": "#fff8f4",
+                        "secondary-container": "#ebe1d6",
+                        "tertiary-fixed": "#ffddb2",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "tertiary-container": "#af9066",
+                        "secondary-fixed": "#ebe1d6",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#745a34",
+                        "on-tertiary-fixed": "#291800",
+                        "outline-variant": "#dcc1b5",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#e8d7c9",
+                        "on-secondary-fixed": "#1f1b14",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#3e2a08",
+                        "surface-container-highest": "#f1dfd1",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#783200",
+                        "secondary": "#645d55",
+                        "primary": "#9b4509",
+                        "on-surface-variant": "#554339",
+                        "surface-tint": "#9b4509",
+                        "on-primary-fixed": "#331100",
+                        "primary-fixed-dim": "#ffb690",
+                        "background": "#fff8f4",
+                        "surface-container-low": "#fff1e7",
+                        "primary-container": "#e07a3e",
+                        "inverse-surface": "#392f25"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px",
+                        "max-width-content": "1200px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "lg": "40px",
+                        "xl": "64px",
+                        "margin-desktop": "auto"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 sticky shadow-sm z-40">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 max-w-max-width-content mx-auto">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="font-display text-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">Homely</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low transition-colors rounded-full active:scale-95 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-max-width-content mx-auto px-margin-mobile md:px-margin-desktop py-lg flex flex-col gap-lg">
+<!-- Progress Bar -->
+<div class="w-full">
+<div class="flex justify-between mb-xs">
+<span class="font-label-md text-label-md text-primary font-bold">Paso 1: Descripción</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Paso 1 de 3</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 33%"></div>
+</div>
+</div>
+<!-- Header -->
+<div class="flex flex-col gap-sm">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Cuéntanos qué necesitas</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Proporciona detalles sobre el servicio que requieres para que nuestros profesionales puedan ofrecerte una cotización precisa.</p>
+</div>
+<!-- Form Area -->
+<form class="flex flex-col gap-lg bg-surface-container-lowest p-md md:p-lg rounded-xl shadow-[0px_4px_20px_rgba(74,63,53,0.08)]">
+<!-- Category Selection -->
+<fieldset class="flex flex-col gap-md">
+<legend class="font-headline-md text-headline-md text-on-surface mb-xs">Categoría del servicio</legend>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<!-- Option 1 -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="category" type="radio" value="plomeria">
+<div class="flex flex-col items-center justify-center p-sm md:p-md rounded-lg border-2 border-surface-variant bg-surface hover:border-primary-fixed peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] mb-xs">plumbing</span>
+<span class="font-label-md text-label-md text-center">Plomería</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="category" type="radio" value="electricidad">
+<div class="flex flex-col items-center justify-center p-sm md:p-md rounded-lg border-2 border-surface-variant bg-surface hover:border-primary-fixed peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] mb-xs">bolt</span>
+<span class="font-label-md text-label-md text-center">Electricidad</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="category" type="radio" value="limpieza">
+<div class="flex flex-col items-center justify-center p-sm md:p-md rounded-lg border-2 border-surface-variant bg-surface hover:border-primary-fixed peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] mb-xs">cleaning_services</span>
+<span class="font-label-md text-label-md text-center">Limpieza</span>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="category" type="radio" value="otros">
+<div class="flex flex-col items-center justify-center p-sm md:p-md rounded-lg border-2 border-surface-variant bg-surface hover:border-primary-fixed peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-on-primary-container transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] mb-xs">handyman</span>
+<span class="font-label-md text-label-md text-center">Otros</span>
+</div>
+</label>
+</div>
+</fieldset>
+<!-- Description Area -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface" for="description">Descripción detallada</label>
+<textarea class="w-full rounded-lg border border-tertiary-fixed-dim bg-surface-container-lowest p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md resize-y" id="description" name="description" placeholder="Ej. El lavamanos del baño principal gotea constantemente..." rows="4"></textarea>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Proporciona tantos detalles como sea posible.</p>
+</div>
+<!-- File Upload -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface">Fotos o videos (Opcional)</label>
+<div class="border-2 border-dashed border-tertiary-fixed-dim rounded-lg p-md flex flex-col items-center justify-center bg-surface-container hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full mb-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">add_a_photo</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface text-center">Haz clic para subir o arrastra los archivos aquí</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center mt-xs">Máximo 5 archivos (JPG, PNG, MP4)</p>
+<input accept="image/*,video/*" class="hidden" multiple="" type="file">
+</div>
+</div>
+</form>
+</main>
+<!-- Bottom Action Bar (Transactional Context - No Nav) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-surface-variant p-margin-mobile md:p-md z-50 shadow-[0px_-4px_20px_rgba(74,63,53,0.08)] flex justify-end">
+<div class="w-full max-w-max-width-content mx-auto flex justify-end">
+<button class="w-full md:w-auto bg-primary-container text-on-error font-label-md text-label-md font-bold px-lg h-12 rounded-lg flex items-center justify-center gap-xs hover:bg-primary transition-colors active:scale-95" type="button">
+<span>Siguiente: Ubicación y Cotización</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Spacer for bottom bar -->
+<div class="h-24"></div>
+<script src="prototype.js"></script></body></html>

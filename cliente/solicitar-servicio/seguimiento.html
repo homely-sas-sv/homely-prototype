@@ -1,0 +1,242 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Seguimiento de Servicio - Homely</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-container": "#3e2a08",
+                      "surface-container-high": "#f7e5d7",
+                      "primary": "#9b4509",
+                      "on-background": "#231a11",
+                      "surface-tint": "#9b4509",
+                      "secondary-fixed-dim": "#cec5bb",
+                      "surface-container-low": "#fff1e7",
+                      "surface": "#fff8f4",
+                      "tertiary-fixed-dim": "#e4c193",
+                      "background": "#fff8f4",
+                      "tertiary-container": "#af9066",
+                      "tertiary": "#745a34",
+                      "on-secondary-fixed": "#1f1b14",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#f1dfd1",
+                      "surface-dim": "#e8d7c9",
+                      "on-primary-fixed": "#331100",
+                      "on-primary": "#ffffff",
+                      "surface-container": "#fdebdc",
+                      "on-surface": "#231a11",
+                      "primary-container": "#e07a3e",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#4c463e",
+                      "secondary-fixed": "#ebe1d6",
+                      "inverse-surface": "#392f25",
+                      "secondary-container": "#ebe1d6",
+                      "on-tertiary-fixed-variant": "#5a421f",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#dcc1b5",
+                      "on-primary-container": "#501f00",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#554339",
+                      "on-tertiary-fixed": "#291800",
+                      "surface-bright": "#fff8f4",
+                      "on-error": "#ffffff",
+                      "inverse-primary": "#ffb690",
+                      "primary-fixed": "#ffdbca",
+                      "primary-fixed-dim": "#ffb690",
+                      "tertiary-fixed": "#ffddb2",
+                      "surface-container-highest": "#f1dfd1",
+                      "on-primary-fixed-variant": "#783200",
+                      "inverse-on-surface": "#ffeee0",
+                      "outline": "#897268",
+                      "secondary": "#645d55",
+                      "on-secondary-container": "#6a635b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "20px",
+                      "lg": "40px",
+                      "md": "24px",
+                      "xl": "64px",
+                      "max-width-content": "1200px",
+                      "gutter": "16px",
+                      "margin-desktop": "auto"
+              },
+              "fontFamily": {
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "display": ["Plus Jakarta Sans"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "headline-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .map-gradient {
+            background: linear-gradient(180deg, rgba(255, 248, 244, 0.8) 0%, rgba(255, 248, 244, 0) 20%, rgba(255, 248, 244, 0) 60%, rgba(255, 248, 244, 1) 100%);
+        }
+        
+        /* Map pin pulse animation */
+        @keyframes pin-pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .animate-pin-pulse::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background-color: theme('colors.primary-container');
+            animation: pin-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            z-index: -1;
+        }
+
+        /* Route line dash animation */
+        @keyframes dash {
+            to { stroke-dashoffset: -20; }
+        }
+        .route-line {
+            stroke-dasharray: 8 6;
+            animation: dash 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-full flex flex-col overflow-hidden antialiased selection:bg-primary-container selection:text-white">
+<!-- Main Content Area: Map Context -->
+<main class="relative flex-1 w-full h-full bg-surface-container">
+<!-- Interactive Map Background -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A top-down, light-mode style digital map of a suburban residential neighborhood in San Salvador. The visual aesthetic is clean, warm, and humanist, utilizing a soft earth-toned color palette. Main arteries are subtly highlighted in terracotta, while green spaces feature a calming sage hue. The lighting suggests daytime clarity, aligning perfectly with a modern, approachable service app interface." data-location="San Salvador, El Salvador" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwTMRnoggQzYHVQ1aEJnH_KRk8tIi914fbp1in1qtPF3DpQ5WeAiGGp_3Y6BGihGZalbCoJKv0wuR6EpGsbk4ucnsP3DCEYVhd1NGy0HgxFm4sv74cI7tecuk-eAPFYg6wHSYSSHeFBeHU6jTmwLgYO_L2qSAW9o2DhJ6dPQ_9luvxM_xkdowJ3z_XRrrnBvihROwruJS2xR_rF-CNsH-WhuFakTpxzy_AdQKl63GxbfU_2Un2Mrc3kw')">
+</div>
+<!-- Gradient Overlay for legibility -->
+<div class="absolute inset-0 map-gradient pointer-events-none"></div>
+<!-- Simulated Map Elements Overlay -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<!-- Simulated Route -->
+<path class="route-line opacity-80" d="M 30,70 Q 40,50 60,40 T 75,25" fill="none" stroke="#e07a3e" stroke-linecap="round" stroke-width="0.8"></path>
+</svg>
+<!-- Destination Pin (Home) -->
+<div class="absolute" style="top: 25%; left: 75%; transform: translate(-50%, -100%);">
+<div class="bg-surface-container-lowest p-2 rounded-full shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<div class="w-1 h-3 bg-surface-container-lowest mx-auto -mt-1 shadow-sm"></div>
+</div>
+<!-- Technician Pin (Moving) -->
+<div class="absolute animate-pin-pulse" style="top: 70%; left: 30%; transform: translate(-50%, -50%);">
+<div class="w-10 h-10 bg-primary-container text-white rounded-full shadow-lg border-2 border-white flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+</div>
+</div>
+<!-- Top Navigation Area (Task-Focused: Floating Back Button & Status) -->
+<header class="absolute top-0 left-0 w-full p-margin-mobile flex justify-between items-start z-10 pointer-events-none">
+<button aria-label="Volver" class="pointer-events-auto w-12 h-12 bg-surface-container-lowest rounded-full shadow-sm flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<!-- Live Status Badge -->
+<div class="pointer-events-auto bg-surface-container-lowest px-4 py-2 rounded-full shadow-sm flex items-center gap-2 border border-surface-variant">
+<div class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-container"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Técnico en camino</span>
+</div>
+</header>
+<!-- Bottom Tracking Card (Bento/Glassmorphism inspired) -->
+<section class="absolute bottom-0 left-0 w-full md:left-1/2 md:-translate-x-1/2 md:bottom-lg md:w-[480px] bg-surface-container-lowest rounded-t-[32px] md:rounded-[32px] shadow-[0px_4px_20px_rgba(74,63,53,0.08)] z-20 flex flex-col pointer-events-auto">
+<!-- Mobile Drag Handle -->
+<div class="w-full flex justify-center pt-4 pb-2 md:hidden">
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full"></div>
+</div>
+<div class="p-margin-mobile pt-0 md:pt-margin-mobile flex flex-col gap-md">
+<!-- ETA Section -->
+<div class="flex flex-col items-center justify-center text-center">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-[10px]">Tiempo Estimado</span>
+<h1 class="font-display text-display text-primary-container leading-none mt-2">12 min</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+                        Llegada aprox. 10:45 AM
+                    </p>
+</div>
+<hr class="border-outline-variant/30 w-full">
+<!-- Technician Profile -->
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl border border-surface-variant/50">
+<div class="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-surface-container-lowest shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional, well-lit headshot photograph of a friendly Salvadoran service technician. He is wearing a clean, modern uniform polo shirt in a subtle terracotta shade. The background is a soft, blurred neutral tone to make his face stand out. His expression is warm, conveying trust and reliability, fitting perfectly into a humanist app design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs2VHqMWLDz9vdph_ibUHX7q-Hl6XBcaaeVNJMrN9y6y2qKD2IkOZVbrmiRWMCVZY3XV2-jhd55lIKtndNbCPfJWIMFcMDIhY5YW7Qog1z95QSzafFQglm3EjlKjdtujkN-cuJsKtfGoehqTmR5J4Jrlt-dR_5twYm2h2jPL5RTqlOGf5H8_LlYRaRn4GVn7GEecVdwG9UDdLW-MD-N5Wog63HcUcEOZD8OAmvBMauX7be17TlSUDAjg">
+<!-- Online Indicator -->
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-[#4ade80] border-2 border-surface-container-lowest rounded-full"></div>
+</div>
+<div class="flex-1">
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Carlos M.</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Especialista en Plomería</p>
+<div class="flex items-center gap-3 mt-1.5">
+<!-- Rating -->
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2 py-0.5 rounded-md shadow-sm border border-surface-variant/50">
+<span class="material-symbols-outlined text-primary-container text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">4.9</span>
+</div>
+<!-- Verification Badge -->
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-tertiary-container">Verificado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-sm">
+<!-- Secondary Button (Call) -->
+<button class="flex-1 h-12 bg-transparent border-[1.5px] border-primary-container text-primary-container rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-container transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined">call</span>
+                        Llamar
+                    </button>
+<!-- Primary Button (WhatsApp) -->
+<button class="flex-1 h-12 bg-primary-container text-white rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary transition-colors active:scale-95 duration-200 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        WhatsApp
+                    </button>
+</div>
+<!-- Cancel Request -->
+<button class="w-full py-2 font-label-md text-label-md text-error hover:text-on-error-container transition-colors mt-2 opacity-80 hover:opacity-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+                    Cancelar solicitud
+                </button>
+</div>
+<!-- Safe area spacing for mobile -->
+<div class="h-6 md:hidden w-full bg-surface-container-lowest"></div>
+</section>
+</main>
+<script src="prototype.js"></script></body></html>

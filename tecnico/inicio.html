@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Homely - Dashboard Técnico</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#3e2a08",
+                        "surface-container-high": "#f7e5d7",
+                        "primary": "#9b4509",
+                        "on-background": "#231a11",
+                        "surface-tint": "#9b4509",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "surface-container-low": "#fff1e7",
+                        "surface": "#fff8f4",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "background": "#fff8f4",
+                        "tertiary-container": "#af9066",
+                        "tertiary": "#745a34",
+                        "on-secondary-fixed": "#1f1b14",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#f1dfd1",
+                        "surface-dim": "#e8d7c9",
+                        "on-primary-fixed": "#331100",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#fdebdc",
+                        "on-surface": "#231a11",
+                        "primary-container": "#e07a3e",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "secondary-fixed": "#ebe1d6",
+                        "inverse-surface": "#392f25",
+                        "secondary-container": "#ebe1d6",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#dcc1b5",
+                        "on-primary-container": "#501f00",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#554339",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-bright": "#fff8f4",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb690",
+                        "primary-fixed": "#ffdbca",
+                        "primary-fixed-dim": "#ffb690",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-container-highest": "#f1dfd1",
+                        "on-primary-fixed-variant": "#783200",
+                        "inverse-on-surface": "#ffeee0",
+                        "outline": "#897268",
+                        "secondary": "#645d55",
+                        "on-secondary-container": "#6a635b"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "sm": "12px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "max-width-content": "1200px",
+                        "gutter": "16px",
+                        "margin-desktop": "auto"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Soft shadow from design guidelines */
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(74, 63, 53, 0.08);
+        }
+        /* Custom toggle switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #e07a3e; /* primary-container */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #e07a3e;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased flex flex-col md:flex-row min-h-screen">
+<!-- Shared Component: SideNavBar (Desktop) -->
+<nav class="h-screen w-64 hidden md:flex flex-col fixed left-0 top-0 bottom-0 z-40 border-r border-outline-variant bg-surface-container-lowest dark:bg-surface-dim shadow-sm">
+<div class="p-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">handyman</span>
+<span class="font-headline-md text-headline-md text-primary">Homely</span>
+</div>
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm p-sm rounded-xl bg-surface-container">
+<img alt="Avatar de usuario" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a confident, smiling Salvadoran male technician in a clean, modern home setting. Soft, natural light illuminating his face, wearing a neat, earth-toned uniform. The background is slightly blurred showing a warm, organic modern interior. High-quality corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhZ-mNO1HFZhdIgTIIAyS_xUXgbh_BMM-GON7VkKP6JAnJRwnYDkvSItU2DuWYNKRKEVpN_xxmVYVmVLIrLSoXAAFM8DRLyhyq9AqFcAxXeflLhJ4gTioCv_IIICg-19MuUyWG2_I77EGlZChq620TQVT-ZRWL8dzfcs3GfI8HNVXWimHgWcFWqdB-ktinijSjDvbcjzxCGERN0o5XVxbLe-UcPc_Wh1tR3_QPd0YP5IJtH2Np3O4J4w">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Hola, Usuario</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+<p class="font-label-sm text-label-sm text-tertiary">Técnico Verificado</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto font-label-md text-label-md">
+<!-- Active Tab -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-2 px-4 py-3 flex items-center gap-3 translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Inicio
+            </a>
+<!-- Inactive Tabs -->
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Mis Solicitudes
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Mensajes
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Billetera
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+</div>
+<div class="p-4 border-t border-outline-variant mt-auto font-label-md text-label-md">
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                Ayuda
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Cerrar Sesión
+            </a>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 w-full p-margin-mobile md:p-lg pb-32 md:pb-lg flex flex-col gap-lg">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Panel de Control</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Gestiona tus solicitudes y ganancias diarias.</p>
+</div>
+<!-- Availability Toggle (Mobile prominent, Desktop inline right) -->
+<div class="bg-surface rounded-xl shadow-soft p-4 flex items-center justify-between gap-lg md:w-auto w-full">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Disponibilidad</p>
+<p class="font-label-sm text-label-sm text-primary-container mt-1" id="availability-status">Recibiendo solicitudes</p>
+</div>
+<!-- CSS Toggle -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200" id="toggle" name="toggle" onchange="toggleState()" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="toggle"></label>
+</div>
+</div>
+</header>
+<!-- Dashboard Content Wrapper -->
+<div>
+<!-- Online State (Bento Grid Dashboard) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md" id="online-state">
+<!-- Urgent: New Request Card (Spans 8 columns on large screens) -->
+<section class="lg:col-span-8 bg-surface rounded-xl shadow-soft border-l-4 border-primary-container p-md hover:-translate-y-[2px] transition-transform duration-200">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container animate-pulse">notifications_active</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Nueva solicitud entrante</h2>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full">Hace 2 min</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-md">
+<!-- Map Placeholder -->
+<div class="w-full sm:w-1/3 h-32 sm:h-auto rounded-lg overflow-hidden relative">
+<div class="bg-cover bg-center w-full h-full absolute inset-0" data-alt="A minimalist, stylized map view of San Salvador, El Salvador, showing a route highlighted in a warm terracotta tone. The map uses a light mode aesthetic with soft beige and off-white background colors. Small, clean UI markers denote the start and end points of a journey. The visual style is clean, vector-like, and highly legible, fitting a modern SaaS dashboard." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKggGv55Hwn7KbrE7Ati_voiGqgJAPqDA9opbJ9n2o1BlJLDDau-upTws8GjfnMGj5aPlTcCJsQTvBABwkQZLuZCqnryyzIyvueCc3pQ6Csth7CXsA072BgQeEgUkJSZQCKEVOtYz4PnM_OdQFS51gkLlzdC8E2IKKi35IupaiCRnn3MHatYoWaM0DFTlvrjRb-SBz4JW7KJ8qSdtrFVKBridr5oeKx_xtN-CBAXm39Dpob1bE4Bgjiw')"></div>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-background text-lg">Reparación Eléctrica General</h3>
+<div class="flex items-start gap-2 mt-2">
+<span class="material-symbols-outlined text-outline text-[18px]">location_on</span>
+<p class="font-body-md text-body-md text-on-surface-variant leading-tight">Colonia Escalón, Calle El Mirador, Casa #45, San Salvador</p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="material-symbols-outlined text-outline text-[18px]">schedule</span>
+<p class="font-body-md text-body-md text-on-surface-variant">Hoy, 14:30 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-sm mt-md">
+<button class="flex-1 bg-primary-container text-on-primary h-12 rounded-lg font-label-md text-label-md transition-colors hover:opacity-90">Aceptar Solicitud</button>
+<button class="flex-1 bg-transparent border-[1.5px] border-primary-container text-primary-container h-12 rounded-lg font-label-md text-label-md transition-colors hover:bg-surface-container">Rechazar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Earnings Summary (Spans 4 columns) -->
+<section class="lg:col-span-4 flex flex-col gap-md">
+<div class="bg-surface rounded-xl shadow-soft p-md flex-1">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-sm">Ingresos del Mes (Mayo)</h3>
+<p class="font-display text-display text-primary">$450.00</p>
+<div class="mt-md space-y-2 border-t border-surface-variant pt-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal de servicios</span>
+<span class="font-body-md text-body-md text-on-background">$562.50</span>
+</div>
+<div class="flex justify-between items-center text-error">
+<span class="font-body-md text-body-md">Comisión Homely (20%)</span>
+<span class="font-body-md text-body-md">-$112.50</span>
+</div>
+</div>
+</div>
+<!-- Rating Mini-Card -->
+<div class="bg-surface rounded-xl shadow-soft p-md flex items-center justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Calificación Promedio</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="font-headline-md text-headline-md text-on-background">4.8</span>
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+</div>
+</div>
+<!-- Using tertiary for the 'Sage Green' alternative within theme rules -->
+<div class="bg-tertiary-container text-on-tertiary-container w-12 h-12 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</section>
+<!-- Homely Pro Banner -->
+<section class="lg:col-span-12 bg-surface-container-high rounded-xl p-lg flex flex-col md:flex-row items-center justify-between gap-md relative overflow-hidden">
+<!-- Abstract background pattern placeholder -->
+<div class="absolute inset-0 opacity-30 bg-cover bg-center mix-blend-multiply" data-alt="A soft, abstract organic background pattern using warm terracotta and beige tones. The pattern consists of smooth, flowing, fluid shapes that gently overlap, creating a sense of calm and modernity. The lighting is bright and ethereal, suitable for a premium light-mode UI banner background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCWU1Y3GepLGaVgFiCoMSLQeT2MnMGQjR3dBwvXXq45sOdi2cMZenIVfRfLxuz_ZcQ2qXWlN7ru5uUcnnCNxiakebDQnxj3LADDZxn1UZQGHz98ETyaFyR6MBzezXkSW6ZGQCdbdcwrwzwCj1D458V-tvDNYSki9DuqCDEgti7-1jOWSTE6uMxeO9uclqCxYSvhhIoIYPQTZClHMd9GyD08IjqSuNmXH1CJls3t6nh6U4sEJVhjUNI1Q')"></div>
+<div class="relative z-10 flex-1">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+<h3 class="font-headline-md text-headline-md text-primary">Actualiza a Homely Pro</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Reduce tu comisión al 15%, obtén prioridad en solicitudes entrantes y accede a soporte técnico 24/7. Eleva tu perfil profesional hoy.</p>
+</div>
+<button class="relative z-10 whitespace-nowrap bg-primary-container text-on-primary h-12 px-6 rounded-lg font-label-md text-label-md transition-transform hover:-translate-y-1 shadow-soft">
+                        Conocer los beneficios
+                    </button>
+</section>
+</div>
+<!-- Offline State -->
+<div class="hidden flex flex-col items-center justify-center py-20 bg-surface rounded-xl shadow-soft h-full border border-outline-variant border-dashed" id="offline-state">
+<div class="w-24 h-24 bg-surface-variant rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">power_settings_new</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Estás desconectado</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md text-center mb-8">Ponte en línea para empezar a recibir solicitudes de servicios cerca de ti y continuar incrementando tus ganancias.</p>
+<button class="bg-primary-container text-on-primary h-12 px-8 rounded-lg font-label-md text-label-md transition-transform hover:-translate-y-1 shadow-soft flex items-center gap-2" onclick="document.getElementById('toggle').click()">
+<span class="material-symbols-outlined">wifi</span>
+            Ponerse en línea
+        </button>
+</div>
+</div>
+</main>
+<!-- Shared Component: BottomNavBar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-16 pb-safe px-4 bg-surface dark:bg-surface-dim md:hidden shadow-lg border-t border-outline-variant">
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm mt-1">Explorar</span>
+</a>
+<!-- Active -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">handyman</span>
+<span class="font-label-sm text-label-sm mt-1">Actividad</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm mt-1">Chat</span>
+</a>
+<!-- Inactive -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Perfil</span>
+</a>
+</nav>
+<script>
+    function toggleState() {
+        const toggle = document.getElementById('toggle');
+        const onlineState = document.getElementById('online-state');
+        const offlineState = document.getElementById('offline-state');
+        const statusText = document.getElementById('availability-status');
+        
+        if (toggle.checked) {
+            onlineState.classList.remove('hidden');
+            offlineState.classList.add('hidden');
+            statusText.textContent = 'Recibiendo solicitudes';
+            statusText.classList.remove('text-on-surface-variant');
+            statusText.classList.add('text-primary-container');
+        } else {
+            onlineState.classList.add('hidden');
+            offlineState.classList.remove('hidden');
+            statusText.textContent = 'Desconectado';
+            statusText.classList.remove('text-primary-container');
+            statusText.classList.add('text-on-surface-variant');
+        }
+    }
+</script>
+<script src="prototype.js"></script></body></html>

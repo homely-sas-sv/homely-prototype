@@ -1,0 +1,415 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Homely Pro - Active Job</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ebe1d6",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb690",
+                        "inverse-surface": "#392f25",
+                        "outline-variant": "#dcc1b5",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#ebe1d6",
+                        "primary-fixed": "#ffdbca",
+                        "surface-dim": "#e8d7c9",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#783200",
+                        "on-primary-fixed": "#331100",
+                        "surface-container-high": "#f7e5d7",
+                        "on-secondary-fixed": "#1f1b14",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#fdebdc",
+                        "tertiary": "#745a34",
+                        "surface-container-highest": "#f1dfd1",
+                        "tertiary-container": "#af9066",
+                        "on-primary-container": "#501f00",
+                        "on-tertiary-container": "#3e2a08",
+                        "primary-fixed-dim": "#ffb690",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#e07a3e",
+                        "primary": "#9b4509",
+                        "on-secondary-container": "#6a635b",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#645d55",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-bright": "#fff8f4",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container-low": "#fff1e7",
+                        "on-surface": "#231a11",
+                        "outline": "#897268",
+                        "background": "#fff8f4",
+                        "surface": "#fff8f4",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "inverse-on-surface": "#ffeee0",
+                        "on-surface-variant": "#554339",
+                        "on-background": "#231a11",
+                        "surface-variant": "#f1dfd1",
+                        "surface-tint": "#9b4509",
+                        "on-secondary-fixed-variant": "#4c463e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "margin-mobile": "20px",
+                        "max-width-content": "1200px",
+                        "margin-desktop": "auto",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean app-like feel */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .swipe-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swipe-track {
+            background-color: var(--tw-colors-surface-container-high);
+            border-radius: 9999px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0px 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .swipe-thumb {
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            bottom: 4px;
+            width: 48px;
+            background-color: var(--tw-colors-primary-container);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0px 2px 8px rgba(224,122,62,0.4);
+            transition: transform 0.1s;
+        }
+        
+        .swipe-text {
+            color: var(--tw-colors-on-surface-variant);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .shadow-soft {
+            box-shadow: 0px 4px 20px rgba(74, 63, 53, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row relative">
+<!-- Top Navigation (Mobile App Header) -->
+<header class="docked full-width top-0 bg-background dark:bg-on-background flat no shadows flex justify-between items-center w-full px-margin-mobile py-base md:hidden z-20 sticky">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="font-headline-md text-headline-md-mobile text-primary dark:text-primary-fixed-dim font-bold">En camino al cliente</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<!-- Side Navigation (Web Shell) -->
+<nav class="h-screen w-64 hidden md:flex flex-col fixed left-0 top-0 bottom-0 z-40 border-r border-outline-variant bg-surface-container-lowest dark:bg-surface-dim shadow-sm">
+<div class="p-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">handyman</span>
+<span class="font-headline-md text-headline-md text-primary">Homely</span>
+</div>
+<div class="px-md mb-lg">
+<div class="flex items-center gap-sm p-sm rounded-xl bg-surface-container">
+<img alt="Avatar de usuario" class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a confident, smiling Salvadoran male technician in a clean, modern home setting. Soft, natural light illuminating his face, wearing a neat, earth-toned uniform. The background is slightly blurred showing a warm, organic modern interior. High-quality corporate portrait style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhZ-mNO1HFZhdIgTIIAyS_xUXgbh_BMM-GON7VkKP6JAnJRwnYDkvSItU2DuWYNKRKEVpN_xxmVYVmVLIrLSoXAAFM8DRLyhyq9AqFcAxXeflLhJ4gTioCv_IIICg-19MuUyWG2_I77EGlZChq620TQVT-ZRWL8dzfcs3GfI8HNVXWimHgWcFWqdB-ktinijSjDvbcjzxCGERN0o5XVxbLe-UcPc_Wh1tR3_QPd0YP5IJtH2Np3O4J4w">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Hola, Usuario</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+<p class="font-label-sm text-label-sm text-tertiary">Cliente Verificado</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto font-label-md text-label-md">
+<!-- Inactive Tab -->
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Inicio
+            </a>
+<!-- Active Tab -->
+<a class="bg-primary-container text-on-primary-container rounded-xl mx-2 px-4 py-3 flex items-center gap-3 translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Mis Solicitudes
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Mensajes
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Billetera
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Configuración
+            </a>
+<div class="px-4 mt-md">
+<button class="w-full bg-primary-container text-on-primary h-12 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 shadow-soft hover:-translate-y-[2px] transition-transform">
+<span class="material-symbols-outlined">add</span>
+                    Nueva Solicitud
+                </button>
+</div>
+</div>
+<div class="p-4 border-t border-outline-variant mt-auto font-label-md text-label-md">
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                Ayuda
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant rounded-xl px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Cerrar Sesión
+            </a>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 relative flex flex-col h-[calc(100vh-64px)] md:h-screen w-full">
+<!-- Desktop Header for Active Job -->
+<header class="hidden md:flex justify-between items-center px-lg py-md bg-surface border-b border-surface-container-highest sticky top-0 z-20">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">En camino al cliente</h1>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-secondary-container text-on-secondary-container font-label-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="support_agent">support_agent</span> Soporte
+                </button>
+</div>
+</header>
+<!-- Map Area -->
+<div class="flex-1 relative w-full bg-surface-variant">
+<!-- Simulated Map Background -->
+<img alt="Map view" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A clean, modern digital map interface viewed from a slightly angled top-down perspective, typical of a navigation app. The map shows a suburban residential neighborhood in San Salvador with soft, warm lighting. A clear blue route line is drawn on the streets indicating a path. The colors are muted earthy tones matching a modern organic aesthetic." data-location="San Salvador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpTG0l7YlH4Mxb0jnQX9MpX6MsXEuTmUqJavNrMRdrqZI3Ol2_ABVcVT3Ip-JOO7G7uA-Iyu_jEz4nJj_Uk1VEzAqxY8YIT7X9Cnl6VOmK4kPmaIT652BUFkqQ9hJ7l7fLx-Ef5Zjeb4U0v0l526fy5Dhqhns_GDqSrl-9zS1CFVIkXJ_8vWyGqaDb6lNTn3thG8R6D4Na5Q7rw0ywYWer23fXP-2KHACv4DMFHFH80IixGk9v00t-w">
+<!-- Route Overlays (Faked with CSS for visual) -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path class="opacity-70" d="M 20 80 Q 40 40 80 20" fill="none" stroke="var(--tw-colors-primary)" stroke-dasharray="4,4" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="20" cy="80" fill="var(--tw-colors-secondary-container)" r="3" stroke="var(--tw-colors-on-surface)" stroke-width="1"></circle>
+<circle cx="80" cy="20" fill="var(--tw-colors-primary-container)" r="3"></circle>
+</svg>
+</div>
+<!-- ETA Badge on Map -->
+<div class="absolute top-md left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-lg bg-surface px-md py-sm rounded-full shadow-[0px_4px_20px_rgba(74,63,53,0.15)] flex items-center gap-sm border border-surface-container">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Llegada estimada</span>
+<span class="font-label-md text-label-md text-on-surface">12 min (4.2 km)</span>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-margin-mobile top-1/2 -translate-y-1/2 flex flex-col gap-sm md:right-lg">
+<button class="w-12 h-12 bg-surface rounded-full flex items-center justify-center shadow-[0px_4px_20px_rgba(74,63,53,0.1)] hover:bg-surface-variant transition-colors border border-surface-container">
+<span class="material-symbols-outlined text-on-surface" data-icon="my_location">my_location</span>
+</button>
+<button class="w-12 h-12 bg-surface rounded-full flex items-center justify-center shadow-[0px_4px_20px_rgba(74,63,53,0.1)] hover:bg-surface-variant transition-colors border border-surface-container">
+<span class="material-symbols-outlined text-on-surface" data-icon="explore">explore</span>
+</button>
+</div>
+</div>
+<!-- Job Details Bottom Sheet / Sidebar depending on responsive -->
+<div class="bg-surface rounded-t-[24px] md:rounded-none shadow-[0px_-8px_30px_rgba(74,63,53,0.1)] md:shadow-none border-t border-surface-container z-30 w-full md:w-[400px] md:h-[calc(100vh-80px)] md:absolute md:left-0 md:bottom-0 md:border-r flex flex-col p-margin-mobile md:p-lg">
+<!-- Mobile Grabber -->
+<div class="w-12 h-1.5 bg-surface-container-high rounded-full mx-auto mb-md md:hidden"></div>
+<div class="flex-1 overflow-y-auto pb-lg md:pb-0">
+<!-- Customer Info -->
+<div class="flex flex-col mb-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-secondary-fixed shadow-[0px_4px_10px_rgba(74,63,53,0.1)] border-2 border-surface">
+<img alt="Customer Ana M." class="w-full h-full object-cover" data-alt="A portrait of a Latina woman in her 40s, smiling warmly. She is in a bright, modern kitchen setting. The lighting is soft and natural, emphasizing a trustworthy and approachable demeanor. The photo has a high-quality, professional look typical of user profiles on modern apps." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEOCyZSW6GPzy7xO3FmHFSWu3I6tGd6wdy_h7vFd1b9pjQbKUtQmLXYqsh1Yjvyye89HRhZx0p281c0PSQYm0NUnZ5qAUpCPJQe4rJoQJjWoKJ9591K83-ZTJs2D0QI9HzNvxGXfbK1zK8USuknIaoLI3OjwnyjgPM78cyopf6DEslpLkiEl3Fr3N7VNcCIX32IgrDVahIzg3MdkKyvHkYVTBnxuYAwPiCV4tbNl31gHxuPKGvBnR4QQ">
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Ana M.</h2>
+<div class="flex items-center gap-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill" style="color: #D99330; font-variation-settings: 'FILL' 1;">star</span> 4.9 (12 servicios)
+                            </div>
+</div>
+</div>
+</div>
+<div class="flex gap-sm mt-4">
+<button class="flex-1 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:bg-surface-variant transition-colors gap-2 font-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span> Contactar
+</button>
+<button class="w-12 h-10 rounded-full bg-[#E8F5E9] text-[#2E7D32] flex items-center justify-center hover:bg-[#C8E6C9] transition-colors border border-[#A5D6A7]">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container mb-lg"></div>
+<!-- Job Description -->
+<div class="mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Detalles del Problema</h3>
+<div class="bg-surface-container-low p-md rounded-xl border border-surface-container-high">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary" data-icon="plumbing">plumbing</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[18px] font-semibold text-on-surface mb-xs">Fuga en el fregadero de la cocina</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">El tubo debajo del fregadero está goteando constantemente. Necesito revisión y posible reemplazo de la tubería p.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Address -->
+<div class="mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs uppercase tracking-wider">Destino</h3>
+<div class="flex items-start gap-sm mt-2">
+<span class="material-symbols-outlined text-on-surface-variant mt-1" data-icon="location_on">location_on</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Residencial Los Sueños, Senda 4, Casa 12</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Portón principal, preguntar por familia M.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Swipe Action Button -->
+<div class="mt-auto pt-md border-t border-surface-container bg-surface pb-margin-mobile md:pb-0">
+<div class="swipe-btn w-full rounded-full select-none" id="swipeButton">
+<div class="swipe-track w-full">
+<span class="font-label-md text-label-md font-bold swipe-text z-0">Iniciar Servicio</span>
+<div class="swipe-thumb w-12 h-12 rounded-full z-10 flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple swipe-to-confirm logic for demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const swipeBtn = document.getElementById('swipeButton');
+            const thumb = swipeBtn.querySelector('.swipe-thumb');
+            const track = swipeBtn.querySelector('.swipe-track');
+            const text = swipeBtn.querySelector('.swipe-text');
+            
+            let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
+            const maxTravel = track.offsetWidth - thumb.offsetWidth - 8; // 8px padding
+            
+            const handleStart = (e) => {
+                isDragging = true;
+                startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                thumb.style.transition = 'none';
+            };
+            
+            const handleMove = (e) => {
+                if (!isDragging) return;
+                
+                const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                const deltaX = x - startX;
+                
+                currentX = Math.max(0, Math.min(deltaX, maxTravel));
+                thumb.style.transform = `translateX(${currentX}px)`;
+                
+                // Fade out text as we swipe
+                text.style.opacity = 1 - (currentX / maxTravel);
+            };
+            
+            const handleEnd = () => {
+                if (!isDragging) return;
+                isDragging = false;
+                thumb.style.transition = 'transform 0.3s ease';
+                text.style.transition = 'opacity 0.3s ease';
+                
+                if (currentX >= maxTravel * 0.8) {
+                    // Success state
+                    thumb.style.transform = `translateX(${maxTravel}px)`;
+                    thumb.innerHTML = '<span class="material-symbols-outlined" data-icon="check">check</span>';
+                    thumb.style.backgroundColor = '#2E7D32'; // Success Green
+                    text.style.opacity = 0;
+                    
+                    // Trigger haptic if available
+                    if (window.navigator && window.navigator.vibrate) {
+                        window.navigator.vibrate(50);
+                    }
+                    
+                    setTimeout(() => {
+                        text.textContent = 'Servicio iniciado';
+                        // Reset for demo
+                        thumb.style.transform = 'translateX(0)';
+                        thumb.style.backgroundColor = 'var(--tw-colors-primary-container)';
+                        thumb.innerHTML = '<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>';
+                        text.style.opacity = 1;
+                        text.textContent = 'Finalizar Servicio';
+                    }, 1000);
+                } else {
+                    // Snap back
+                    thumb.style.transform = 'translateX(0)';
+                    text.style.opacity = 1;
+                }
+            };
+            
+            thumb.addEventListener('mousedown', handleStart);
+            document.addEventListener('mousemove', handleMove);
+            document.addEventListener('mouseup', handleEnd);
+            
+            thumb.addEventListener('touchstart', handleStart);
+            document.addEventListener('touchmove', handleMove);
+            document.addEventListener('touchend', handleEnd);
+        });
+    </script>
+<script src="prototype.js"></script></body></html>

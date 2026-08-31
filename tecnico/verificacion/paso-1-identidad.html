@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Homely - Registro de Técnico</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#745a34",
+                        "surface-container-high": "#f7e5d7",
+                        "surface": "#fff8f4",
+                        "on-surface": "#231a11",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb690",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#3e2a08",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "secondary": "#645d55",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "secondary-fixed": "#ebe1d6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "primary-container": "#e07a3e",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#dcc1b5",
+                        "primary-fixed-dim": "#ffb690",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-tint": "#9b4509",
+                        "inverse-on-surface": "#ffeee0",
+                        "surface-dim": "#e8d7c9",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fff1e7",
+                        "on-background": "#231a11",
+                        "secondary-container": "#ebe1d6",
+                        "primary": "#9b4509",
+                        "on-secondary-fixed": "#1f1b14",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#af9066",
+                        "surface-container": "#fdebdc",
+                        "on-secondary-container": "#6a635b",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fff8f4",
+                        "inverse-surface": "#392f25",
+                        "background": "#fff8f4",
+                        "outline": "#897268",
+                        "on-primary-container": "#501f00",
+                        "on-primary-fixed-variant": "#783200",
+                        "surface-variant": "#f1dfd1",
+                        "on-primary-fixed": "#331100",
+                        "on-surface-variant": "#554339",
+                        "surface-container-highest": "#f1dfd1",
+                        "primary-fixed": "#ffdbca"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "xs": "4px",
+                        "lg": "40px",
+                        "margin-mobile": "20px",
+                        "xl": "64px",
+                        "gutter": "16px",
+                        "md": "24px",
+                        "max-width-content": "1200px",
+                        "sm": "12px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "display": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Hide scrollbar for clean horizontal scrolling on mobile stepper */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Minimal Header for Transactional Flow -->
+<header class="w-full py-4 px-margin-mobile md:px-margin-desktop flex justify-center border-b border-surface-container-low bg-surface">
+<span class="font-display text-headline-md font-extrabold text-primary">Homely</span>
+</header>
+<main class="flex-grow flex flex-col items-center px-margin-mobile w-full py-lg">
+<div class="w-full max-w-3xl flex flex-col gap-xl">
+<!-- Stepper -->
+<div class="w-full">
+<nav aria-label="Progreso" class="w-full overflow-x-auto no-scrollbar pb-2">
+<ol class="flex items-center justify-between min-w-[500px] w-full" role="list">
+<!-- Step 1: Completed -->
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-0.5 w-full bg-primary-container"></div>
+</div>
+<a class="relative flex h-8 w-8 items-center justify-center rounded-full bg-primary-container hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-primary-container text-sm font-bold">check</span>
+</a>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-primary whitespace-nowrap">Datos Personales</span>
+</li>
+<!-- Step 2: Active -->
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-0.5 w-full bg-surface-container-highest"></div>
+</div>
+<a aria-current="step" class="relative flex h-8 w-8 items-center justify-center rounded-full border-2 border-primary bg-surface" href="#">
+<span class="font-label-md text-label-md text-primary">2</span>
+</a>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-md text-label-md text-on-surface whitespace-nowrap">Documentación</span>
+</li>
+<!-- Step 3: Pending -->
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-0.5 w-full bg-surface-container-highest"></div>
+</div>
+<a class="relative flex h-8 w-8 items-center justify-center rounded-full border-2 border-outline-variant bg-surface" href="#">
+<span class="font-label-sm text-label-sm text-outline-variant">3</span>
+</a>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Experiencia</span>
+</li>
+<!-- Step 4: Pending -->
+<li class="relative">
+<a class="relative flex h-8 w-8 items-center justify-center rounded-full border-2 border-outline-variant bg-surface" href="#">
+<span class="font-label-sm text-label-sm text-outline-variant">4</span>
+</a>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Revisión</span>
+</li>
+</ol>
+</nav>
+</div>
+<!-- Main Content Area -->
+<section class="flex flex-col gap-6">
+<div class="text-center md:text-left">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Verifica tu identidad</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Para mantener una comunidad segura y confiable, necesitamos que subas los siguientes documentos. Aceptamos formatos PDF, JPG o PNG.</p>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Document 1: CV (Pending State) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(74,63,53,0.04)] border border-surface-container-low transition-all hover:shadow-[0px_8px_24px_rgba(74,63,53,0.08)]">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px]">Curriculum Vitae</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Tu experiencia detallada y formación.</p>
+</div>
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-2.5 py-1 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">pending</span>
+                                Pendiente
+                            </span>
+</div>
+<div class="relative border-2 border-dashed border-outline-variant rounded-lg p-8 flex flex-col items-center justify-center bg-surface hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input accept=".pdf,.doc,.docx" aria-label="Subir Curriculum Vitae" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file">
+<span class="material-symbols-outlined text-[40px] text-tertiary mb-3 group-hover:text-primary transition-colors">upload_file</span>
+<p class="font-label-md text-label-md text-on-surface text-center">Haz clic para subir o arrastra tu archivo aquí</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1 text-center">PDF, DOCX hasta 10MB</p>
+</div>
+</div>
+<!-- Document 2: Antecedentes Penales (Uploaded State) -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-[0px_4px_20px_rgba(74,63,53,0.04)] border border-primary-container/30 transition-all">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px]">Antecedentes Penales</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Documento emitido en los últimos 90 días.</p>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#E8F5E9] text-[#2E7D32] px-2.5 py-1 rounded-full font-label-sm text-label-sm border border-[#C8E6C9]">
+<span class="material-symbols-outlined text-[16px] fill">check_circle</span>
+                                Cargado
+                            </span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 flex items-center justify-between">
+<div class="flex items-center gap-3 overflow-hidden">
+<div class="h-10 w-10 rounded bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined fill">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<p class="font-label-md text-label-md text-on-surface truncate">antecedentes_homely_2024.pdf</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">2.4 MB</p>
+</div>
+</div>
+<button aria-label="Eliminar archivo" class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Document 3: Solvencia PNC (Pending State) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(74,63,53,0.04)] border border-surface-container-low transition-all hover:shadow-[0px_8px_24px_rgba(74,63,53,0.08)]">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px]">Solvencia de la PNC</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Requerido para verificación de seguridad.</p>
+</div>
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-2.5 py-1 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">pending</span>
+                                Pendiente
+                            </span>
+</div>
+<div class="relative border-2 border-dashed border-outline-variant rounded-lg p-8 flex flex-col items-center justify-center bg-surface hover:bg-surface-container-low transition-colors cursor-pointer group">
+<input accept=".pdf,.jpg,.jpeg,.png" aria-label="Subir Solvencia PNC" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" type="file">
+<span class="material-symbols-outlined text-[40px] text-tertiary mb-3 group-hover:text-primary transition-colors">cloud_upload</span>
+<p class="font-label-md text-label-md text-on-surface text-center">Haz clic para subir o arrastra tu archivo aquí</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1 text-center">PDF, JPG, PNG hasta 5MB</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Actions -->
+<div class="flex flex-col-reverse sm:flex-row gap-4 justify-between items-center mt-4 border-t border-surface-container-high pt-6">
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg border-2 border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                    Anterior
+                </button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-sm flex items-center justify-center gap-2" type="button">
+                    Siguiente
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<script src="prototype.js"></script></body></html>

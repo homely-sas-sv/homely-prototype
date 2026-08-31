@@ -1,0 +1,330 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Homely - Mis Solicitudes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#ffeee0",
+                      "surface": "#fff8f4",
+                      "primary-fixed-dim": "#ffb690",
+                      "on-primary-fixed": "#331100",
+                      "surface-bright": "#fff8f4",
+                      "primary-container": "#e07a3e",
+                      "tertiary-fixed-dim": "#e4c193",
+                      "on-secondary": "#ffffff",
+                      "on-primary-container": "#501f00",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#ffb690",
+                      "surface-container-low": "#fff1e7",
+                      "surface-variant": "#f1dfd1",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#ffddb2",
+                      "secondary-fixed-dim": "#cec5bb",
+                      "on-primary-fixed-variant": "#783200",
+                      "outline": "#897268",
+                      "on-tertiary-container": "#3e2a08",
+                      "on-tertiary-fixed": "#291800",
+                      "on-surface": "#231a11",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#5a421f",
+                      "secondary-fixed": "#ebe1d6",
+                      "tertiary-container": "#af9066",
+                      "on-secondary-fixed": "#1f1b14",
+                      "on-background": "#231a11",
+                      "surface-dim": "#e8d7c9",
+                      "primary": "#9b4509",
+                      "primary-fixed": "#ffdbca",
+                      "outline-variant": "#dcc1b5",
+                      "secondary": "#645d55",
+                      "on-error": "#ffffff",
+                      "background": "#fff8f4",
+                      "secondary-container": "#ebe1d6",
+                      "surface-container-highest": "#f1dfd1",
+                      "surface-container": "#fdebdc",
+                      "on-surface-variant": "#554339",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#745a34",
+                      "on-secondary-container": "#6a635b",
+                      "surface-container-high": "#f7e5d7",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#392f25",
+                      "surface-tint": "#9b4509",
+                      "on-secondary-fixed-variant": "#4c463e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "margin-mobile": "20px",
+                      "xl": "64px",
+                      "lg": "40px",
+                      "max-width-content": "1200px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "base": "8px",
+                      "margin-desktop": "auto"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Soft shadow for cards */
+        .card-shadow {
+            box-shadow: 0px 4px 20px rgba(74, 63, 53, 0.08);
+        }
+        .card-hover:hover {
+            box-shadow: 0px 8px 24px rgba(74, 63, 53, 0.12);
+            transform: translateY(-2px);
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-screen p-md space-y-base bg-surface-container-low w-64 flex-shrink-0 z-10 border-r border-outline-variant/30">
+<div class="mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Homely</h1>
+</div>
+<div class="flex items-center gap-sm mb-lg px-2">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A close up, well lit professional headshot of a smiling person, wearing casual warm-toned clothing, set against a soft blurred background, fitting a modern clean ui avatar style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4eRqMfzqtRCWGxCHXat_nxZ8M3HHCFsyufp65A2i1cC7ufHfs8X6rSLb45MzShjG1OBdAVemzg8rN9oU8nTasA6Lv1I6UC_gBSr_6VnKT3JNvYACWwDxUtJQ7VYzSJz00Gy7KMvYzleopCneqJsSMykwEnMw6h-Eo_vs7CsrkoQaPUDEou7iRalDBBdm0s7K7fEk_KHlR0MFnJ9fxaEIW15BuRWT4jHLg2JgvK66T4c_hg8T_8Etm0A">
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Bienvenido</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Propietario Verificado</p>
+</div>
+</div>
+<ul class="flex flex-col gap-sm flex-grow">
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Inicio
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container rounded-xl px-4 py-3 font-label-md translate-x-1 transition-transform font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="assignment" data-weight="fill">assignment</span>
+                    Mis Solicitudes
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+                    Mensajes
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Configuración
+                </a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary font-label-md text-label-md font-bold py-3 rounded-lg hover:bg-primary transition-colors h-12">
+                Nueva Solicitud
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Mobile Header / TopAppBar -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile h-16 w-full bg-surface shadow-sm z-20">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Homely</h1>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto px-margin-mobile md:px-lg py-lg">
+<div class="max-w-max-width-content mx-auto">
+<div class="mb-lg flex flex-col md:flex-row md:items-end justify-between gap-sm">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Mis Solicitudes</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Gestiona tus solicitudes actuales y pasadas.</p>
+</div>
+<button class="md:hidden w-full bg-primary-container text-on-primary font-label-md text-label-md font-bold py-3 rounded-lg hover:bg-primary transition-colors h-12">
+                        Nueva Solicitud
+                    </button>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-outline-variant mb-lg overflow-x-auto no-scrollbar">
+<button class="px-md py-3 text-primary border-b-2 border-primary font-label-md text-label-md font-bold whitespace-nowrap">
+                        Activas
+                    </button>
+<button class="px-md py-3 text-on-surface-variant hover:text-primary font-label-md text-label-md whitespace-nowrap transition-colors">
+                        Historial
+                    </button>
+<button class="px-md py-3 text-on-surface-variant hover:text-primary font-label-md text-label-md whitespace-nowrap transition-colors">
+                        Canceladas
+                    </button>
+</div>
+<!-- Active Requests Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Request Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-md card-shadow card-hover transition-all border border-outline-variant/20 flex flex-col">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container-high p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="plumbing">plumbing</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Reparación de Plomería</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Programado: Mañana, 10:00 AM</p>
+</div>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded-full font-label-sm text-label-sm">En Progreso</span>
+</div>
+<div class="flex items-center gap-sm mb-md mt-auto pt-sm border-t border-surface-variant">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A warm, professional headshot of a male technician wearing a clean service uniform, smiling gently against a plain light background, suitable for a trustworthy service provider profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx5vvq8Q4NK6iiWNwv7luPKOFC1DP57X6hA9b3sjuYEkhnogPqemTUw9BlJB2xfQCfsOCMxbdNA1Ot09Un5I_LrCwLVPDn5W4UVWkKQKrbbYbcAvANX-d9rcYFQHtpb2dHSJsr1aaZL068KhCUJ5KQ_dMhlfUfId4VxusPxFZiOp_6uswrNC3ChNww_fLCmJ2x9i_cpIZ7v5FAeI3_UY_0Py-t968LxnDC9Fx4KlPL0FW0t0sl2sPUCA">
+<div class="flex-1">
+<p class="font-label-md text-label-md font-bold text-on-surface">Carlos Rivera</p>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill">star</span>
+<span class="font-label-sm text-label-sm">4.9 (120 reseñas)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-label-md py-2 rounded-lg transition-colors border border-outline-variant/50">Mensaje</button>
+<button class="flex-1 bg-primary-container text-on-primary font-label-md text-label-md py-2 rounded-lg hover:bg-primary transition-colors">Detalles</button>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-md card-shadow card-hover transition-all border border-outline-variant/20 flex flex-col">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="bg-surface-container-high p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="electrical_services">electrical_services</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Inspección Eléctrica</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pendiente de confirmación</p>
+</div>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-1 rounded-full font-label-sm text-label-sm">Pendiente</span>
+</div>
+<div class="flex items-center gap-sm mb-md mt-auto pt-sm border-t border-surface-variant">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md font-bold text-on-surface">Buscando Pro</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Buscando a los mejores profesionales...</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="w-full bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-label-md py-2 rounded-lg transition-colors border border-outline-variant/50">Ver Detalles</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="prototype.js"></script></body></html>

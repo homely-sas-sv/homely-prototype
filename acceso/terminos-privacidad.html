@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Términos y Privacidad - Homely</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdbca",
+                    "secondary-container": "#ebe1d6",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb690",
+                    "tertiary-container": "#af9066",
+                    "surface-container-highest": "#f1dfd1",
+                    "surface-container-low": "#fff1e7",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#f7e5d7",
+                    "tertiary": "#745a34",
+                    "on-surface": "#231a11",
+                    "outline": "#897268",
+                    "on-secondary-fixed": "#1f1b14",
+                    "surface-variant": "#f1dfd1",
+                    "surface-container": "#fdebdc",
+                    "on-secondary-fixed-variant": "#4c463e",
+                    "outline-variant": "#dcc1b5",
+                    "on-primary-fixed": "#331100",
+                    "primary-fixed-dim": "#ffb690",
+                    "tertiary-fixed": "#ffddb2",
+                    "on-primary-fixed-variant": "#783200",
+                    "primary": "#9b4509",
+                    "on-background": "#231a11",
+                    "secondary-fixed-dim": "#cec5bb",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ebe1d6",
+                    "on-surface-variant": "#554339",
+                    "inverse-surface": "#392f25",
+                    "background": "#fff8f4",
+                    "on-tertiary-fixed": "#291800",
+                    "secondary": "#645d55",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#501f00",
+                    "on-tertiary-fixed-variant": "#5a421f",
+                    "on-secondary-container": "#6a635b",
+                    "surface-dim": "#e8d7c9",
+                    "on-tertiary-container": "#3e2a08",
+                    "surface-tint": "#9b4509",
+                    "surface": "#fff8f4",
+                    "surface-bright": "#fff8f4",
+                    "primary-container": "#e07a3e",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#e4c193",
+                    "inverse-on-surface": "#ffeee0",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "max-width-content": "1200px",
+                    "xs": "4px",
+                    "gutter": "16px",
+                    "md": "24px",
+                    "xl": "64px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "auto",
+                    "lg": "40px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "display": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar (Nav Supressed as requested by rules for non-main destinations, but prompt explicitly asked for TopNavBar. We will include a simplified version of TopNavBar that acts as a brand anchor without global nav links, or just use the full TopNavBar as requested.) -->
+<!-- Applying prompt instruction: "Incluir el TopNavBar y Footer estándar de Homely." -->
+<header class="bg-surface dark:bg-background shadow-sm w-full top-0 z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-lg w-full h-20 z-50">
+<div class="flex items-center gap-md">
+<a class="font-display text-display text-primary dark:text-primary-fixed-dim" href="#">Homely</a>
+</div>
+
+<div class="hidden md:flex gap-base items-center">
+<button class="font-label-md text-label-md text-primary bg-transparent border-[1.5px] border-primary-container px-gutter py-sm rounded-lg hover:bg-surface-variant transition-colors">Iniciar Sesión</button>
+<button class="font-label-md text-label-md text-on-primary bg-primary-container px-gutter py-sm rounded-lg hover:bg-primary transition-colors">Ser Técnico</button>
+</div>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-max-width-content mx-auto px-margin-mobile md:px-lg py-xl">
+<div class="mb-lg text-center">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-sm">Centro Legal y de Confianza</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Información clara y transparente sobre cómo operamos, protegemos tus datos y garantizamos tu seguridad en la plataforma.</p>
+</div>
+<!-- Tabs Navigation -->
+<div class="flex flex-col sm:flex-row justify-center gap-sm mb-lg border-b border-outline-variant">
+<button class="tab-btn font-label-md text-label-md border-b-2 pb-sm px-gutter hover:bg-surface-variant transition-colors text-on-surface-variant border-transparent" id="btn-terms" onclick="switchTab('terms')">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="gavel">gavel</span>
+                    Términos y Condiciones
+                </div>
+</button>
+<button class="tab-btn font-label-md text-label-md pb-sm px-gutter hover:bg-surface-variant hover:text-primary-container transition-colors border-b-2 text-primary-container font-bold border-primary-container" id="btn-privacy" onclick="switchTab('privacy')">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield">shield</span>
+                    Políticas de Privacidad
+                </div>
+</button>
+</div>
+<!-- Terms Content -->
+<div class="tab-content bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(74,63,53,0.08)] p-md md:p-lg border border-outline-variant/30" id="terms">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Términos y Condiciones de Uso</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Última actualización: 24 de Octubre de 2024</p>
+<div class="space-y-lg">
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="handshake">handshake</span>
+                        1. Definición del Servicio
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Homely actúa exclusivamente como una plataforma de intermediación digital que conecta a usuarios que requieren servicios de mantenimiento, reparación o mejoras del hogar con proveedores de servicios independientes (técnicos).</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="work_off">work_off</span>
+                        2. Ausencia de Relación Laboral
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Los técnicos registrados en la plataforma operan como contratistas independientes bajo las disposiciones del Código de Comercio vigente. No existe relación laboral, de subordinación o dependencia entre Homely y los técnicos.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="verified_user">verified_user</span>
+                        3. Proceso de Verificación
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Homely realiza un proceso de validación de identidad y verificación de antecedentes penales y policiales de los técnicos antes de su activación en la plataforma. Sin embargo, esta verificación se basa en registros públicos y no constituye una garantía absoluta de comportamiento futuro.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="location_on">location_on</span>
+                        4. Geolocalización
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Para garantizar la seguridad y eficiencia del servicio, la plataforma utiliza seguimiento por geolocalización en tiempo real durante el trayecto del técnico hacia el domicilio del usuario y mientras se ejecuta el servicio.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="receipt_long">receipt_long</span>
+                        5. Pagos, Comisiones y Facturación
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Los pagos se procesan a través de la plataforma. Homely retiene una comisión por la intermediación tecnológica. Homely emitirá una factura electrónica únicamente por el monto correspondiente a la comisión por el uso de la plataforma. El técnico es responsable de emitir el comprobante fiscal por el servicio prestado.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="gavel">gavel</span>
+                        6. Deslinde de Responsabilidad
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Homely queda exenta de responsabilidad civil, penal o administrativa por actos, omisiones, daños, o perjuicios causados directamente por los técnicos durante la prestación del servicio. La responsabilidad recae sobre el técnico como contratista independiente.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="support_agent">support_agent</span>
+                        7. Garantías y Reclamos
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Todo reclamo relacionado con la calidad del servicio debe regirse bajo los términos de la Ley de Protección al Consumidor. Homely facilitará los canales de comunicación entre usuario y técnico para la resolución de disputas.</p>
+</section>
+</div>
+</div>
+<!-- Privacy Content -->
+<div class="tab-content bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(74,63,53,0.08)] p-md md:p-lg border border-outline-variant/30 active" id="privacy">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">Políticas de Privacidad</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Última actualización: 24 de Octubre de 2024</p>
+<div class="space-y-lg">
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="database">database</span>
+                        1. Datos Recopilados
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Recopilamos información personal necesaria para operar la plataforma, incluyendo: Documento de Identidad (DUI/Pasaporte), datos de contacto, ubicación (GPS), historial de servicios, métodos de pago y registros de comunicación dentro del chat de la aplicación.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="policy">policy</span>
+                        2. Principios de Tratamiento
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">El tratamiento de datos se rige por los principios de licitud, finalidad, proporcionalidad y calidad, en cumplimiento con el derecho a la autodeterminación informativa reconocido en el Art. 2 de la Constitución de la República de El Salvador.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="data_usage">data_usage</span>
+                        3. Uso de la Información
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">La información recopilada se utiliza exclusivamente para: facilitar la conexión entre el usuario y el técnico adecuado, georreferenciar la prestación del servicio para seguridad de ambas partes, procesar pagos y mejorar la experiencia en la plataforma.</p>
+</section>
+<section>
+<h3 class="font-label-md text-label-md text-on-surface mb-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" data-icon="lock">lock</span>
+                        4. Confidencialidad y No Transferencia
+                    </h3>
+<p class="font-body-md text-body-md text-on-surface-variant pl-gutter border-l-2 border-surface-variant">Homely garantiza la estricta confidencialidad de sus datos. No vendemos, alquilamos ni transferimos su información personal a terceros para fines de marketing. Solo se compartirá información con las autoridades competentes mediante orden judicial o requerimiento legal formal.</p>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-on-background dark:bg-surface-dim full-width py-xl mt-auto">
+<div class="w-full max-w-max-width-content mx-auto px-margin-mobile flex flex-col md:flex-row justify-between gap-md">
+<div>
+<h4 class="font-headline-md text-headline-md text-surface mb-sm">Homely</h4>
+<p class="font-body-md text-body-md text-secondary-fixed-dim">© 2024 Homely El Salvador. Conectando confianza.</p>
+</div>
+<nav class="flex flex-wrap gap-md items-center">
+<a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors opacity-80" href="#privacy" onclick="switchTab('privacy')">Privacidad</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors opacity-80" href="#terms" onclick="switchTab('terms')">Términos</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors opacity-80" href="#">Soporte</a>
+<a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors opacity-80" href="#">Trabaja con nosotros</a>
+</nav>
+</div>
+</footer>
+<script>
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Reset all buttons styling
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-primary-container', 'font-bold', 'border-primary-container');
+                btn.classList.add('text-on-surface-variant', 'border-transparent');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Style selected button
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.remove('text-on-surface-variant', 'border-transparent');
+            activeBtn.classList.add('text-primary-container', 'font-bold', 'border-primary-container');
+        }
+    </script>
+
+
+<script src="prototype.js"></script></body></html>

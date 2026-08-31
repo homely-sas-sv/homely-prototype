@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Centro de Ayuda - Homely</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#745a34",
+                        "surface-container-high": "#f7e5d7",
+                        "surface": "#fff8f4",
+                        "on-surface": "#231a11",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb690",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#3e2a08",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "secondary": "#645d55",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "secondary-fixed": "#ebe1d6",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#291800",
+                        "primary-container": "#e07a3e",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#dcc1b5",
+                        "primary-fixed-dim": "#ffb690",
+                        "tertiary-fixed": "#ffddb2",
+                        "surface-tint": "#9b4509",
+                        "inverse-on-surface": "#ffeee0",
+                        "surface-dim": "#e8d7c9",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fff1e7",
+                        "on-background": "#231a11",
+                        "secondary-container": "#ebe1d6",
+                        "primary": "#9b4509",
+                        "on-secondary-fixed": "#1f1b14",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#af9066",
+                        "surface-container": "#fdebdc",
+                        "on-secondary-container": "#6a635b",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fff8f4",
+                        "inverse-surface": "#392f25",
+                        "background": "#fff8f4",
+                        "outline": "#897268",
+                        "on-primary-container": "#501f00",
+                        "on-primary-fixed-variant": "#783200",
+                        "surface-variant": "#f1dfd1",
+                        "on-primary-fixed": "#331100",
+                        "on-surface-variant": "#554339",
+                        "surface-container-highest": "#f1dfd1",
+                        "primary-fixed": "#ffdbca"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "lg": "40px",
+                        "margin-mobile": "20px",
+                        "xl": "64px",
+                        "gutter": "16px",
+                        "md": "24px",
+                        "max-width-content": "1200px",
+                        "sm": "12px",
+                        "margin-desktop": "auto",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .accordion-content {
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Header (Web) -->
+<header class="hidden md:flex bg-surface dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-margin-desktop max-w-max-width-content mx-auto h-16 sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">handyman</span>
+<span class="font-display text-headline-md font-extrabold text-primary dark:text-primary-fixed-dim">Homely</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-on-surface-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-colors w-64 font-body-md text-body-md" placeholder="Buscar ayuda..." type="text">
+</div>
+<button class="text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant font-medium hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<img alt="Foto de perfil del técnico" class="w-10 h-10 rounded-full object-cover border border-outline-variant ml-2" data-alt="A portrait of a friendly Latin American female technician wearing a clean uniform, smiling warmly in a bright, modern interior setting. The lighting is soft and inviting, emphasizing approachability and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuP8NmumvCTrScXY8a-w58MMNTTNYJFegREGyvqS_gp3gwgJwpS9KjP92zoCCR0BhaIz3dX9Rh_Y7YfdZKLYKJRovfKlU3kjMx4jCRVqQUw5HnQoQxLRkrbYO-tAF1JoOrQG-Si1FHP818PEefHS_j1XJr2FJRv6s-fOswO1R0t1bLUu62zCD3tAGj_P6z587N6H_vgAbXFs_lz0DbcKrBH_CUa5FeBrd3JuS94QpNIlOfxpWFc1DxNw">
+<button class="ml-4 font-label-md text-label-md text-primary font-bold hover:bg-surface-container-high px-4 py-2 rounded-lg transition-colors active:scale-95 duration-150">Cerrar Sesión</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-max-width-content mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-32 md:pb-lg">
+<!-- Hero Section -->
+<section class="text-center mb-xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-4">¿Cómo podemos ayudarte hoy?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-2xl mx-auto">Encuentra respuestas rápidas a tus preguntas frecuentes sobre Homely, ya seas un cliente buscando servicios o un técnico ofreciendo tus habilidades.</p>
+<div class="relative max-w-xl mx-auto md:hidden mb-8">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant rounded-full text-on-surface-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-colors shadow-sm font-body-md text-body-md" placeholder="Buscar ayuda..." type="text">
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Side Navigation (Categories) -->
+<aside class="md:col-span-3">
+<div class="sticky top-24 bg-surface-container-lowest rounded-xl p-6 shadow-[0px_4px_20px_rgba(74,63,53,0.04)] border border-surface-container-low">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-4 uppercase tracking-wider">Categorías</h3>
+<nav class="flex flex-col gap-2">
+<button class="category-btn w-full text-left px-4 py-3 rounded-lg font-label-md text-label-md flex items-center gap-3 bg-primary-container text-on-primary-container font-bold transition-colors" data-target="clientes">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                            Para Clientes
+                        </button>
+<button class="category-btn w-full text-left px-4 py-3 rounded-lg font-label-md text-label-md flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors" data-target="tecnicos">
+<span class="material-symbols-outlined">handyman</span>
+                            Para Técnicos
+                        </button>
+<button class="category-btn w-full text-left px-4 py-3 rounded-lg font-label-md text-label-md flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors" data-target="pagos">
+<span class="material-symbols-outlined">payments</span>
+                            Pagos
+                        </button>
+<button class="category-btn w-full text-left px-4 py-3 rounded-lg font-label-md text-label-md flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant transition-colors" data-target="seguridad">
+<span class="material-symbols-outlined">security</span>
+                            Seguridad
+                        </button>
+</nav>
+<div class="mt-8 pt-6 border-t border-outline-variant">
+<div class="bg-surface-container p-4 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">¿No encuentras lo que buscas?</h4>
+<p class="font-body-md text-sm text-on-surface-variant mb-3">Nuestro equipo está listo para ayudarte directamente.</p>
+<button class="bg-transparent border-[1.5px] border-primary-container text-primary-container font-label-md text-label-md font-bold px-4 py-2 rounded-lg w-full hover:bg-surface-container-high transition-colors">Contactar Soporte</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- FAQ Content -->
+<div class="md:col-span-9">
+<div class="bg-surface-container-lowest rounded-xl p-6 md:p-8 shadow-[0px_4px_20px_rgba(74,63,53,0.04)] border border-surface-container-low min-h-[500px]">
+<!-- Clientes Section -->
+<div class="faq-section block" id="clientes">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">person</span>
+                            Preguntas para Clientes
+                        </h2>
+<div class="flex flex-col gap-4">
+<!-- Accordion Item 1 -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Cómo solicito un servicio?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Para solicitar un servicio, simplemente busca el tipo de trabajo que necesitas en nuestra página principal, selecciona un técnico de la lista basado en su perfil y calificaciones, y elige la fecha y hora que más te convenga. Una vez confirmado, el técnico se pondrá en contacto contigo.</p>
+</div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Cómo verifican a los técnicos?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Todos nuestros técnicos pasan por un riguroso proceso de verificación. Esto incluye revisión de antecedentes penales, verificación de identidad gubernamental, y comprobación de referencias laborales o certificaciones en su área de especialidad. Buscamos la insignia de "Verificado" (círculo verde con check) en su perfil para mayor tranquilidad.</p>
+<div class="flex items-center gap-2 mt-2 pb-5">
+<span class="material-symbols-outlined text-[#7DA174] bg-[#F1F6F0] rounded-full p-1 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Técnico Verificado</span>
+</div>
+</div>
+</div>
+<!-- Accordion Item 3 -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Qué pasa si no estoy satisfecho con el trabajo?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Tu satisfacción es nuestra prioridad. Si el trabajo no cumple con lo acordado, te recomendamos primero intentar resolverlo directamente con el técnico a través de nuestra plataforma de mensajería. Si no se llega a un acuerdo, puedes contactar a nuestro equipo de soporte dentro de las 48 horas posteriores al servicio, y aplicaremos nuestra Política de Garantía Homely para mediar y encontrar una solución justa.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Técnicos Section (Hidden by default) -->
+<div class="faq-section hidden" id="tecnicos">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">handyman</span>
+                            Preguntas para Técnicos
+                        </h2>
+<div class="flex flex-col gap-4">
+<!-- Accordion Items for Técnicos... -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Cómo me registro para ofrecer servicios?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Para registrarte, haz clic en "Únete como Técnico" en la barra de navegación superior. Necesitarás proporcionar información básica, un documento de identidad válido, y detalles sobre los servicios que ofreces. Una vez enviado, nuestro equipo revisará tu solicitud en un plazo de 24-48 horas.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagos Section (Hidden by default) -->
+<div class="faq-section hidden" id="pagos">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+                            Preguntas sobre Pagos
+                        </h2>
+<div class="flex flex-col gap-4">
+<!-- Accordion Items for Pagos... -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Cómo recibo mis pagos?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Los pagos se procesan de forma segura a través de nuestra plataforma. Una vez que el cliente marca el trabajo como completado, los fondos se liberan a tu cuenta de Homely. Puedes transferir este saldo a tu cuenta bancaria registrada o billetera electrónica en cualquier momento. Las transferencias suelen tardar entre 1 y 3 días hábiles.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Seguridad Section (Hidden by default) -->
+<div class="faq-section hidden" id="seguridad">
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+                            Preguntas sobre Seguridad
+                        </h2>
+<div class="flex flex-col gap-4">
+<!-- Accordion Items for Seguridad... -->
+<div class="border border-outline-variant rounded-lg bg-surface overflow-hidden">
+<button class="accordion-header w-full flex justify-between items-center p-4 md:p-5 text-left focus:outline-none hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+<span class="font-label-md text-body-md md:text-label-md text-on-background font-semibold">¿Es seguro pagar a través de la plataforma?</span>
+<span class="material-symbols-outlined text-on-surface-variant transform transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content px-4 md:px-5 pb-0">
+<p class="font-body-md text-body-md text-on-surface-variant pb-5">Sí, absolutamente. Utilizamos pasarelas de pago cifradas de nivel bancario. Tu información financiera nunca se comparte con los técnicos. Además, retenemos el pago de forma segura hasta que el servicio se haya completado satisfactoriamente, protegiendo tanto al cliente como al técnico.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full rounded-t-xl bg-surface dark:bg-surface-dim border-t border-outline-variant shadow-[0px_-4px_20px_rgba(74,63,53,0.08)] z-50 flex justify-around items-center px-4 py-2">
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant rounded-lg px-2 py-1 scale-95 duration-100">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm-mobile">Inicio</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant rounded-lg px-2 py-1 scale-95 duration-100">
+<span class="material-symbols-outlined mb-1">handyman</span>
+<span class="font-label-sm text-label-sm-mobile">Mis Trabajos</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-variant rounded-lg px-2 py-1 scale-95 duration-100">
+<span class="material-symbols-outlined mb-1">chat</span>
+<span class="font-label-sm text-label-sm-mobile">Mensajes</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-95 duration-100">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm-mobile font-bold">Perfil</span>
+</button>
+</nav>
+<script>
+        // Accordion functionality
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.material-symbols-outlined');
+            
+            // Toggle open class on content
+            content.classList.toggle('open');
+            
+            // Rotate icon
+            if (content.classList.contains('open')) {
+                icon.style.transform = 'rotate(180deg)';
+                button.classList.add('bg-surface-container-low');
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+                button.classList.remove('bg-surface-container-low');
+            }
+        }
+
+        // Category switching functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const faqSections = document.querySelectorAll('.faq-section');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
+
+                    // Update button styles
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                        b.classList.add('text-on-surface-variant', 'hover:bg-surface-variant');
+                        const icon = b.querySelector('.material-symbols-outlined');
+                        icon.style.fontVariationSettings = "'FILL' 0";
+                    });
+
+                    btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+                    btn.classList.remove('text-on-surface-variant', 'hover:bg-surface-variant');
+                    const activeIcon = btn.querySelector('.material-symbols-outlined');
+                    activeIcon.style.fontVariationSettings = "'FILL' 1";
+
+                    // Show target section, hide others
+                    faqSections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.classList.remove('hidden');
+                            section.classList.add('block');
+                        } else {
+                            section.classList.add('hidden');
+                            section.classList.remove('block');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+<script src="prototype.js"></script></body></html>

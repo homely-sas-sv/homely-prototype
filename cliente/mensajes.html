@@ -1,0 +1,346 @@
+<!DOCTYPE html><html class="light" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Mensajes - Homely</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#ffeee0",
+                        "surface": "#fff8f4",
+                        "primary-fixed-dim": "#ffb690",
+                        "on-primary-fixed": "#331100",
+                        "surface-bright": "#fff8f4",
+                        "primary-container": "#e07a3e",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#501f00",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#ffb690",
+                        "surface-container-low": "#fff1e7",
+                        "surface-variant": "#f1dfd1",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffddb2",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "on-primary-fixed-variant": "#783200",
+                        "outline": "#897268",
+                        "on-tertiary-container": "#3e2a08",
+                        "on-tertiary-fixed": "#291800",
+                        "on-surface": "#231a11",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "secondary-fixed": "#ebe1d6",
+                        "tertiary-container": "#af9066",
+                        "on-secondary-fixed": "#1f1b14",
+                        "on-background": "#231a11",
+                        "surface-dim": "#e8d7c9",
+                        "primary": "#9b4509",
+                        "primary-fixed": "#ffdbca",
+                        "outline-variant": "#dcc1b5",
+                        "secondary": "#645d55",
+                        "on-error": "#ffffff",
+                        "background": "#fff8f4",
+                        "secondary-container": "#ebe1d6",
+                        "surface-container-highest": "#f1dfd1",
+                        "surface-container": "#fdebdc",
+                        "on-surface-variant": "#554339",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#745a34",
+                        "on-secondary-container": "#6a635b",
+                        "surface-container-high": "#f7e5d7",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#392f25",
+                        "surface-tint": "#9b4509",
+                        "on-secondary-fixed-variant": "#4c463e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "margin-mobile": "20px",
+                        "xl": "64px",
+                        "lg": "40px",
+                        "max-width-content": "1200px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px",
+                        "margin-desktop": "auto"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #dcc1b5;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen p-md space-y-base bg-surface-container-low docked left-0 h-full w-64 shadow-[0px_4px_20px_rgba(74,63,53,0.05)] z-10 flex-shrink-0">
+<div class="mb-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary">Homely</span>
+</div>
+<div class="flex items-center space-x-sm mb-lg">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a friendly Salvadoran homeowner smiling warmly. The photo is well-lit with soft, natural daylight, conveying approachability and trust, set against a neutral, blurred home interior background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm1qCDPCjQEMNTG6AZvfKyjQe7c9mqqT8qemM0CVjWFKykBrCMMi6RFaKqCyxOeep0iTpdsmrpw1kll2z2x6eC2aO7ht9WIJxmf79okqZGXL2l6-rF5V8SUKv7VFtE3KchnyRbQMvjI6zy_yrzutnKLVMNSfuE-868pgU_qCARWuC5aZx9xKLOxm6Xo4eBYfOfXr3mX1tCJCoA0Tuo6FLvzii0V0PODJ1VWZ8VNGvdR13GfpmDGFo3wg">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Bienvenido de vuelta</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Propietario Verificado</p>
+</div>
+</div>
+<ul class="flex flex-col space-y-2 flex-grow">
+<li>
+<a class="flex items-center space-x-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span>Inicio</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span>Mis Solicitudes</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-sm bg-primary-container text-on-primary-container rounded-xl px-4 py-3 font-label-md transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span>Mensajes</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-sm text-on-surface-variant px-4 py-3 hover:bg-surface-variant rounded-xl transition-all font-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span>Configuración</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-secondary font-label-md text-label-md py-3 rounded-lg font-bold hover:bg-primary transition-colors">
+                Nueva Solicitud
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow flex h-full">
+<!-- Chat List Sidebar (Inner) -->
+<aside class="w-full md:w-80 border-r border-outline-variant bg-surface-container-lowest flex flex-col flex-shrink-0 h-full">
+<div class="p-md border-b border-outline-variant">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-4">Mensajes</h1>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-surface border-tertiary focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-body-md text-body-md text-on-surface placeholder-on-surface-variant" placeholder="Buscar conversaciones..." type="text">
+</div>
+</div>
+<div class="flex-grow overflow-y-auto custom-scrollbar">
+<!-- Chat Item Active -->
+<div class="p-4 flex items-center space-x-4 cursor-pointer bg-surface-container-low border-l-4 border-primary hover:bg-surface-variant transition-colors">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a skilled male plumber in clean work attire, smiling subtly. The background suggests a residential setting. Soft, natural lighting highlights a trustworthy and professional demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiymBkoLYj6Sj8EjR6YPfqL72VcoD_CPysvMzC1XK29j-8rV9wnr27zK2Bo803szDPsXLpD2xlNSq0ryN0CPETWaoXCkQE3WfTqofi9XgNDeap3xAqAC-v9ei9pwkjrltGKOMJj47IS-GrUjsnbLMHyacTpqSvZ42KeDua9_ASjV40Hn2VDpyyJHuprPbzW_df4aEJAvIwTVu_eOcaZtc_QLiDp_qgBXKQIPn5AT75-e4BN_jpU2c26A">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate font-bold">Carlos M. - Plomero</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex-shrink-0 ml-2">10:42 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate text-sm">La tengo en mi camión. Estaré allí en unos 20 minutos con el repuesto.</p>
+</div>
+</div>
+<!-- Chat Item Unread -->
+<div class="p-4 flex items-center space-x-4 cursor-pointer hover:bg-surface-container-low transition-colors border-b border-surface-variant">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A portrait of a female electrician holding a clipboard, looking professional and ready to work. Warm lighting, soft focus background of a home exterior. Friendly and approachable look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwCE-4XqGTbrz4ItRD5B_fnWKsoT9qRo6DBk8rJrZfG6kKVRTnNDuEnxHqwzoBsv6f8m2mvtIY2ANp1TTrYqUfRmkOHykD2flR3Ny5vGOeNOHfHyPt2dzAvOhtAsDvTQzPJN0RejbllDv7XO1HfLYfezNgVTRKQna6le5yHxGx_XDRyDocjyI0tRLVwxJY62lDjW4FCnlYJxtImla5P8uU7QIj9RjAzvGf2OFBKLNnSv0iUifb7NeBTg">
+<span class="absolute -top-1 -right-1 w-4 h-4 bg-primary-container text-on-secondary text-xs flex items-center justify-center rounded-full font-bold">2</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate font-bold">Ana R. - Electricista</h3>
+<span class="font-label-sm text-label-sm text-primary flex-shrink-0 ml-2 font-bold">Ayer</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface truncate text-sm font-semibold">¿Puedes confirmar el número de modelo de la caja de fusibles?</p>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="p-4 flex items-center space-x-4 cursor-pointer hover:bg-surface-container-low transition-colors border-b border-surface-variant">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-md">
+                            M
+                        </div>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate font-semibold">Maria Santos</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex-shrink-0 ml-2">Lun</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate text-sm">¡Gracias por arreglar la fuga! Gran trabajo.</p>
+</div>
+</div>
+<!-- Chat Item -->
+<div class="p-4 flex items-center space-x-4 cursor-pointer hover:bg-surface-container-low transition-colors border-b border-surface-variant">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A close up shot of a friendly male gardener with a sun hat, smiling. Earth tones, outdoor setting with greenery out of focus in the background. Approachable and experienced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSMNcewV5co89VairqvvA6IQ7EL53YsH3OE86V8EP-2HCdH-irHIktKl0sCGGIVbhlMaP0lGuQRgZ-VM_Azj3_1YawqnHzUTDbvEyMGwImlqqSIuTIIQZpLkQj-NMVKc-JFn6xHgoqbndNJ5_oIrVA6kdl47BB0TFeTXe01zYcscyOY8FwCRjGhyuURMvEgXyMOSTN4qK6eiLrMFG4xmVqH07ZmJgeoMGF9uOKPaC_s-yjeZEi5PGiUg">
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate font-semibold">Jorge L. - Jardinería</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex-shrink-0 ml-2">Oct 12</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant truncate text-sm">Nos vemos el próximo martes para el mantenimiento regular.</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Active Chat Area -->
+<section class="hidden md:flex flex-col flex-grow bg-surface h-full">
+<!-- Chat Header -->
+<header class="h-20 border-b border-outline-variant bg-surface-container-lowest px-md flex items-center justify-between flex-shrink-0">
+<div class="flex items-center space-x-4">
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a skilled male plumber in clean work attire, smiling subtly. The background suggests a residential setting. Soft, natural lighting highlights a trustworthy and professional demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmag2Yyg8ob7ofTwUESJyC6uZxiCc4jP6B8mFxJIN5ynrCgrXOCex7WRQq9c0kXOtuJOLu_rgru27JBwomOiOaLMT2DN5rh4KQLIOj5Y093TBfDOFl1EV95OLhyoKV-fkVPpia8XLw_geTwtrxwr3tH-fyU6lK72AABS-NE7-_8tr5eJAnlFGCgmoK5eSFwpU0OlQqeBTk3EOSxlASva1RrkCRwgPWElQX_97JNntlhKS2Ixs8EUhrEg">
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-surface-container-lowest rounded-full"></span>
+</div>
+<div>
+<h2 class="font-headline-md text-label-md text-on-surface font-bold">Carlos M.</h2>
+<div class="flex items-center space-x-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Plomero</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-label-sm text-label-sm text-green-600 flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-0.5">verified</span> Verificado
+                            </span>
+</div>
+</div>
+</div>
+<div class="flex space-x-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-variant hover:text-primary rounded-full transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Messages List -->
+<div class="flex-grow p-md overflow-y-auto custom-scrollbar flex flex-col space-y-6 bg-surface">
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full">Hoy</span>
+</div>
+<!-- Message Received -->
+<div class="flex items-end space-x-2">
+<img class="w-8 h-8 rounded-full object-cover flex-shrink-0 mb-5" data-alt="A small circular avatar of a male plumber." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0rVheS95tUnvvWGKxuZFEkhJ4GwkdxP7a0tqqKTyy8GtGdHYatoEnFiR-7MeXt1UAhisCuUQkMt9emihDvbRg65CU3sRLeTT6UCeNx3rBgZxx2xBmcb3wD3k4qfN-jVKDtNJvSj0zN8dVPUcOL_l_ECkMtsSJGaZiDa53XkzESjneZ9hDIg_eZaTLZKF1A_JoiqvS08t4Xo_BGOe5Z74QjPdirpTgt2zlF8VRzT9hk48HrJdYzrJjYg">
+<div class="max-w-[70%]">
+<div class="bg-surface-container-highest text-on-surface rounded-2xl rounded-bl-sm p-4 shadow-[0px_2px_8px_rgba(74,63,53,0.04)] font-body-md text-body-md">
+                            ¡Hola! Revisé las fotos que enviaste de la tubería bajo el fregadero. Parece que hay que cambiar la trampa en P.
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 ml-1 block">10:30 AM</span>
+</div>
+</div>
+<!-- Message Sent -->
+<div class="flex items-end space-x-2 justify-end">
+<div class="max-w-[70%] flex flex-col items-end">
+<div class="bg-primary-container text-on-secondary rounded-2xl rounded-br-sm p-4 shadow-[0px_2px_8px_rgba(74,63,53,0.08)] font-body-md text-body-md">
+                            Gracias por revisar tan rápido. ¿Necesito comprar la pieza o la traes tú?
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 mr-1 flex items-center">
+                            10:35 AM 
+                            <span class="material-symbols-outlined text-[14px] ml-1 text-primary">done_all</span>
+</span>
+</div>
+</div>
+<!-- Message Received -->
+<div class="flex items-end space-x-2">
+<img class="w-8 h-8 rounded-full object-cover flex-shrink-0 mb-5" data-alt="A small circular avatar of a male plumber." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuujU_ZxuXjsgW7wtq49icUh3Sy-LMi2T-wyTS2VRLIy1YIST3Dp9HuGMl1EIUGUbpX5lj644_O_l2KYaYFqA7Ne4aNW_yXOqijBydyU8--0PPJvWA8Oma1GG5lRKWoNOwiQHoc_23GDfNzSLoPfVSY_VhCfWZxg2xq6AJdYEwHQn21V_aJkAXx5EEp1Gm1RMM1FS36O1FvHoU_TZ2LT9TOiD87Ilxq3dfRCdHRLv9CjRn8rOK3us5_Q">
+<div class="max-w-[70%]">
+<div class="bg-surface-container-highest text-on-surface rounded-2xl rounded-bl-sm p-4 shadow-[0px_2px_8px_rgba(74,63,53,0.04)] font-body-md text-body-md">
+                            La tengo en mi camión. Estaré allí en unos 20 minutos con el repuesto.
+                        </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 ml-1 block">10:42 AM</span>
+</div>
+</div>
+</div>
+<!-- Message Input Area -->
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant flex-shrink-0">
+<div class="flex items-end space-x-2 bg-surface border border-tertiary-fixed-dim rounded-2xl p-2 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-full transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-variant rounded-full transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+<textarea class="flex-grow bg-transparent border-none focus:ring-0 resize-none max-h-32 min-h-[44px] py-3 px-2 font-body-md text-body-md text-on-surface placeholder-on-surface-variant custom-scrollbar" placeholder="Escribe un mensaje..." rows="1"></textarea>
+<button class="p-3 bg-primary-container text-on-secondary rounded-xl hover:bg-primary transition-colors flex-shrink-0 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) - Suppressed as per instructions for Desktop focused view, but added for responsive semantic shell if needed, though hidden on md up -->
+<nav class="md:hidden fixed bottom-0 w-full bg-surface-container-lowest border-t border-outline-variant flex justify-around py-3 px-margin-mobile z-50">
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-[10px] mt-1">Inicio</span>
+</a>
+<a class="flex flex-col items-center text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-sm text-[10px] mt-1 font-bold">Mensajes</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-[10px] mt-1">Configuración</span>
+</a>
+</nav>
+<script>
+        // Simple auto-resize for textarea
+        const tx = document.querySelector("textarea");
+        if(tx) {
+            tx.addEventListener("input", OnInput, false);
+        }
+        function OnInput() {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+        }
+    </script>
+<script src="prototype.js"></script></body></html>
