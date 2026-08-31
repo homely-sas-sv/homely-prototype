@@ -1,13 +1,18 @@
 /* Navegación del prototipo HOMELY SAS: solo conecta vistas locales. */
 (() => {
-  const appFolder = 'HOMELY SAS - PROTOTIPE';
-
   function applicationRoot() {
     const url = new URL(window.location.href);
-    const parts = decodeURIComponent(url.pathname).split('/');
-    const folderIndex = parts.indexOf(appFolder);
-    if (folderIndex < 0) return new URL('./', url);
-    url.pathname = parts.slice(0, folderIndex + 1).join('/') + '/';
+    const parts = decodeURIComponent(url.pathname).split('/').filter(Boolean);
+    const githubPages = url.hostname.endsWith('.github.io');
+    const folderIndex = parts.findIndex((part) => part.toLowerCase().includes('homely'));
+
+    if (githubPages && parts.length > 0) {
+      url.pathname = `/${parts[0]}/`;
+    } else if (folderIndex >= 0) {
+      url.pathname = `/${parts.slice(0, folderIndex + 1).join('/')}/`;
+    } else {
+      url.pathname = '/';
+    }
     url.search = '';
     url.hash = '';
     return url;
