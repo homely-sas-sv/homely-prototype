@@ -222,7 +222,7 @@
 </div>
 </nav>
 <!-- Main Canvas -->
-<main class="flex-1 md:ml-64 relative flex flex-col h-[calc(100vh-64px)] md:h-screen w-full">
+<main class="flex-1 md:ml-64 relative flex flex-col h-[calc(100dvh-64px)] md:h-screen w-full overflow-hidden">
 <!-- Desktop Header for Active Job -->
 <header class="hidden md:flex justify-between items-center px-lg py-md bg-surface border-b border-surface-container-highest sticky top-0 z-20">
 <div class="flex items-center gap-sm">
@@ -238,7 +238,7 @@
 </div>
 </header>
 <!-- Map Area -->
-<div class="flex-1 relative w-full bg-surface-variant">
+<div class="h-full w-full absolute inset-0 md:relative md:flex-1 bg-surface-variant z-0">
 <!-- Simulated Map Background -->
 <img alt="Map view" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A clean, modern digital map interface viewed from a slightly angled top-down perspective, typical of a navigation app. The map shows a suburban residential neighborhood in San Salvador with soft, warm lighting. A clear blue route line is drawn on the streets indicating a path. The colors are muted earthy tones matching a modern organic aesthetic." data-location="San Salvador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpTG0l7YlH4Mxb0jnQX9MpX6MsXEuTmUqJavNrMRdrqZI3Ol2_ABVcVT3Ip-JOO7G7uA-Iyu_jEz4nJj_Uk1VEzAqxY8YIT7X9Cnl6VOmK4kPmaIT652BUFkqQ9hJ7l7fLx-Ef5Zjeb4U0v0l526fy5Dhqhns_GDqSrl-9zS1CFVIkXJ_8vWyGqaDb6lNTn3thG8R6D4Na5Q7rw0ywYWer23fXP-2KHACv4DMFHFH80IixGk9v00t-w">
 <!-- Route Overlays (Faked with CSS for visual) -->
@@ -250,7 +250,7 @@
 </svg>
 </div>
 <!-- ETA Badge on Map -->
-<div class="absolute top-md left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-lg bg-surface px-md py-sm rounded-full shadow-[0px_4px_20px_rgba(74,63,53,0.15)] flex items-center gap-sm border border-surface-container">
+<div class="absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:right-lg bg-surface px-md py-sm rounded-full shadow-[0px_4px_20px_rgba(74,63,53,0.15)] flex items-center gap-sm border border-surface-container z-10 pointer-events-auto">
 <span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-on-surface-variant">Llegada estimada</span>
@@ -258,7 +258,7 @@
 </div>
 </div>
 <!-- Map Controls -->
-<div class="absolute right-margin-mobile top-1/2 -translate-y-1/2 flex flex-col gap-sm md:right-lg">
+<div class="absolute right-4 top-24 md:top-1/2 -translate-y-0 md:-translate-y-1/2 flex flex-col gap-sm md:right-lg z-10 pointer-events-auto">
 <button class="w-12 h-12 bg-surface rounded-full flex items-center justify-center shadow-[0px_4px_20px_rgba(74,63,53,0.1)] hover:bg-surface-variant transition-colors border border-surface-container">
 <span class="material-symbols-outlined text-on-surface" data-icon="my_location">my_location</span>
 </button>
@@ -268,10 +268,16 @@
 </div>
 </div>
 <!-- Job Details Bottom Sheet / Sidebar depending on responsive -->
-<div class="bg-surface rounded-t-[24px] md:rounded-none shadow-[0px_-8px_30px_rgba(74,63,53,0.1)] md:shadow-none border-t border-surface-container z-30 w-full md:w-[400px] md:h-[calc(100vh-80px)] md:absolute md:left-0 md:bottom-0 md:border-r flex flex-col p-margin-mobile md:p-lg">
-<!-- Mobile Grabber -->
-<div class="w-12 h-1.5 bg-surface-container-high rounded-full mx-auto mb-md md:hidden"></div>
-<div class="flex-1 overflow-y-auto pb-lg md:pb-0">
+<div id="jobBottomSheet" class="bg-surface rounded-t-[28px] md:rounded-none shadow-[0px_-8px_30px_rgba(74,63,53,0.15)] md:shadow-none border-t border-surface-container z-30 w-full md:w-[400px] md:h-[calc(100vh-80px)] absolute left-0 bottom-0 md:border-r flex flex-col p-4 md:p-lg transition-all duration-300 max-h-[82dvh] md:max-h-none">
+<!-- Mobile Grabber / Expand-Collapse Header -->
+<button type="button" id="sheetToggleBtn" class="w-full flex flex-col items-center justify-center py-1 mb-2 md:hidden focus:outline-none cursor-pointer" aria-label="Expandir o contraer detalles">
+  <div class="w-12 h-1.5 bg-surface-container-high rounded-full mb-1"></div>
+  <div class="flex items-center gap-1 text-xs font-semibold text-on-surface-variant">
+    <span id="sheetToggleText">Ver detalles del cliente</span>
+    <span class="material-symbols-outlined text-sm transition-transform duration-200" id="sheetToggleIcon">expand_less</span>
+  </div>
+</button>
+<div id="sheetScrollableContent" class="flex-1 overflow-y-auto pb-4 md:pb-0 transition-all duration-200">
 <!-- Customer Info -->
 <div class="flex flex-col mb-lg">
 <div class="flex items-center justify-between">
@@ -410,6 +416,58 @@
             thumb.addEventListener('touchstart', handleStart);
             document.addEventListener('touchmove', handleMove);
             document.addEventListener('touchend', handleEnd);
+
+            // Bottom sheet toggle in mobile to allow seeing the full map
+            const sheet = document.getElementById('jobBottomSheet');
+            const toggleBtn = document.getElementById('sheetToggleBtn');
+            const toggleText = document.getElementById('sheetToggleText');
+            const toggleIcon = document.getElementById('sheetToggleIcon');
+            const content = document.getElementById('sheetScrollableContent');
+            let isExpanded = false;
+
+            const applySheetState = (expanded) => {
+              if (window.innerWidth >= 768) {
+                if (content) content.style.display = 'block';
+                return;
+              }
+              isExpanded = expanded;
+              if (expanded) {
+                sheet.classList.remove('max-h-[170px]');
+                sheet.classList.add('max-h-[82dvh]');
+                if (content) content.style.display = 'block';
+                if (toggleText) toggleText.textContent = 'Ocultar detalles (ver mapa)';
+                if (toggleIcon) {
+                  toggleIcon.textContent = 'expand_more';
+                  toggleIcon.style.transform = 'rotate(0deg)';
+                }
+              } else {
+                sheet.classList.remove('max-h-[82dvh]');
+                sheet.classList.add('max-h-[170px]');
+                if (content) content.style.display = 'none';
+                if (toggleText) toggleText.textContent = 'Ver detalles del cliente';
+                if (toggleIcon) {
+                  toggleIcon.textContent = 'expand_less';
+                  toggleIcon.style.transform = 'rotate(0deg)';
+                }
+              }
+            };
+
+            // Initial mobile state: collapsed so the map and route are clearly visible
+            applySheetState(false);
+
+            if (toggleBtn) {
+              toggleBtn.addEventListener('click', () => {
+                applySheetState(!isExpanded);
+              });
+            }
+
+            window.addEventListener('resize', () => {
+              if (window.innerWidth >= 768) {
+                if (content) content.style.display = 'block';
+              } else {
+                applySheetState(isExpanded);
+              }
+            });
         });
     </script>
 <script src="prototype.js?v=20260831-3"></script></body></html>

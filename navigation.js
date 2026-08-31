@@ -50,8 +50,18 @@
         <a class="hs-link" href="${route('index.html')}"><span class="material-symbols-outlined">logout</span><span>Cerrar sesión</span></a>
       </div>
     </div>`;
-  const mobileMarkup = () => `<div class="hs-mobile-links">${items.slice(0, 4).map(([label, icon, path, active]) => `
-    <a class="hs-mobile-link${active ? ' is-active' : ''}" href="${route(path)}"${active ? ' aria-current="page"' : ''}><span class="material-symbols-outlined"${active ? " style=\"font-variation-settings: 'FILL' 1;\"" : ''}>${icon}</span><span>${label === 'Mis Solicitudes' ? 'Solicitudes' : label === 'Configuración' ? 'Perfil' : label}</span></a>`).join('')}</div>`;
+  const mobileMarkup = () => `
+    <div class="hs-mobile-links">
+      ${items.slice(0, 4).map(([label, icon, path, active]) => `
+        <a class="hs-mobile-link${active ? ' is-active' : ''}" href="${route(path)}"${active ? ' aria-current="page"' : ''}>
+          <span class="material-symbols-outlined"${active ? " style=\"font-variation-settings: 'FILL' 1;\"" : ''}>${icon}</span>
+          <span>${label === 'Mis Solicitudes' ? 'Solicitudes' : label === 'Configuración' ? 'Perfil' : label}</span>
+        </a>`).join('')}
+      <a class="hs-mobile-link hs-mobile-logout" href="${route('index.html')}">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Salir</span>
+      </a>
+    </div>`;
 
   const style = document.createElement('style');
   style.textContent = `
@@ -61,8 +71,8 @@
     .hs-profile{display:flex;align-items:center;gap:12px;background:#fdebdc;border-radius:12px;padding:10px;margin:0 0 20px}.hs-profile img{width:44px;height:44px;object-fit:cover;border-radius:50%}.hs-profile strong,.hs-profile small{display:block}.hs-profile strong{font-size:14px;color:#231a11}.hs-profile small{font-size:12px;color:#745a34;margin-top:2px}
     .hs-links{display:grid;gap:6px}.hs-link{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 14px;border-radius:12px;color:#554339;text-decoration:none;font-size:14px;font-weight:600;transition:background .15s,transform .15s}.hs-link:hover{background:#f1dfd1}.hs-link.is-active{background:#e07a3e;color:#501f00;transform:translateX(4px)}.hs-link .material-symbols-outlined{font-size:21px}
     .hs-footer{margin-top:auto;padding-top:16px;border-top:1px solid #dcc1b5;display:grid;gap:6px}.hs-request{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;background:#e07a3e;color:#501f00;text-decoration:none;border-radius:12px;font-size:14px;font-weight:700;margin-bottom:8px}.hs-request:hover{background:#ffb690}
-    .homely-standard-mobile{height:72px!important;padding:4px 12px max(4px, env(safe-area-inset-bottom))!important;background:#fff!important;border:0!important;border-top:1px solid #dcc1b5!important;border-radius:0!important;box-shadow:0 -4px 20px rgba(74,63,53,.1)!important}.hs-mobile-links{height:100%;display:flex;align-items:center;justify-content:space-around;gap:4px}.hs-mobile-link{min-width:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:5px 2px;border-radius:16px;color:#554339;text-decoration:none;font-size:10px;font-weight:600;line-height:1.1;text-align:center}.hs-mobile-link .material-symbols-outlined{font-size:22px}.hs-mobile-link.is-active{background:#e07a3e;color:#501f00;font-weight:700}
-    @media (max-width:767px){body.homely-has-mobile-nav{padding-bottom:76px!important}.hs-mobile-link span:last-child{max-width:78px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
+    .homely-standard-mobile{height:72px!important;padding:4px 8px max(4px, env(safe-area-inset-bottom))!important;background:#fff!important;border:0!important;border-top:1px solid #dcc1b5!important;border-radius:0!important;box-shadow:0 -4px 20px rgba(74,63,53,.1)!important}.hs-mobile-links{height:100%;display:flex;align-items:center;justify-content:space-around;gap:2px}.hs-mobile-link{min-width:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 1px;border-radius:12px;color:#554339;text-decoration:none;font-size:10px;font-weight:600;line-height:1.1;text-align:center}.hs-mobile-link .material-symbols-outlined{font-size:22px}.hs-mobile-link.is-active{background:#e07a3e;color:#501f00;font-weight:700}.hs-mobile-logout{color:#ba1a1a}.hs-mobile-logout:hover{background:#ffdad6;color:#93000a}
+    @media (max-width:767px){body.homely-has-mobile-nav{padding-bottom:76px!important}.hs-mobile-link span:last-child{max-width:68px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
   `;
   document.head.appendChild(style);
 
