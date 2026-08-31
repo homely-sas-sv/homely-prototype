@@ -22,6 +22,9 @@
   }
 
   const root = applicationRoot();
+  const navigationScript = document.createElement('script');
+  navigationScript.src = new URL('navigation.js?v=20260831-3', root).href;
+  document.head.appendChild(navigationScript);
   const current = decodeURIComponent(window.location.pathname).split('/').pop();
   const inClient = decodeURIComponent(window.location.pathname).includes('/cliente/');
   const inTechnician = decodeURIComponent(window.location.pathname).includes('/tecnico/');
