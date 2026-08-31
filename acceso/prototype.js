@@ -116,6 +116,8 @@
     document.querySelectorAll('a, button').forEach((element) => {
       // Las pestañas internas controlan contenido de su propia pantalla.
       if (element.classList.contains('tab-btn')) return;
+      // El formulario de registro decide su destino según el rol seleccionado.
+      if (current === 'registro.html' && element.type === 'submit') return;
       if (element.tagName === 'A' && element.getAttribute('href') !== '#') return;
       const label = textOf(element);
       // No existe una vista de reseñas; se retira ese acceso para no dejar un enlace muerto.
