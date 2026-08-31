@@ -2,14 +2,17 @@
 (() => {
   function applicationRoot() {
     const url = new URL(window.location.href);
-    const parts = decodeURIComponent(url.pathname).split('/').filter(Boolean);
+    const pathParts = decodeURIComponent(url.pathname).split('/').filter(Boolean);
     const githubPages = url.hostname.endsWith('.github.io');
-    const folderIndex = parts.findIndex((part) => part.toLowerCase().includes('homely'));
+    const folderIndex = pathParts.findIndex((part) => part.toLowerCase().includes('homely'));
 
-    if (githubPages && parts.length > 0) {
-      url.pathname = `/${parts[0]}/`;
+    if (githubPages) {
+      // GitHub Pages de un proyecto siempre empieza con el nombre del repositorio.
+      // No usar la carpeta de la vista actual evita rutas como /cliente/cliente/...
+      const repositoryName = pathParts[0];
+      url.pathname = repositoryName ? `/${repositoryName}/` : '/';
     } else if (folderIndex >= 0) {
-      url.pathname = `/${parts.slice(0, folderIndex + 1).join('/')}/`;
+      url.pathname = `/${pathParts.slice(0, folderIndex + 1).join('/')}/`;
     } else {
       url.pathname = '/';
     }
