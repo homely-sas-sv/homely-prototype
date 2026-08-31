@@ -129,7 +129,11 @@
     if (current === 'registro.html') {
       document.querySelector('form')?.addEventListener('submit', (event) => {
         event.preventDefault();
-        window.location.assign(targetUrl('tecnico/verificacion/paso-1-identidad.html'));
+        const selectedRole = document.querySelector('input[name="role"]:checked')?.value;
+        const destination = selectedRole === 'technician'
+          ? 'tecnico/verificacion/paso-1-identidad.html'
+          : 'cliente/inicio.html';
+        window.location.assign(targetUrl(destination));
       });
     }
   });
