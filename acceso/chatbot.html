@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Homely - Soporte</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#9b4509",
+                        "on-primary-fixed-variant": "#783200",
+                        "tertiary-fixed-dim": "#e4c193",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#f7e5d7",
+                        "on-background": "#231a11",
+                        "outline-variant": "#dcc1b5",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1f1b14",
+                        "on-tertiary-container": "#3e2a08",
+                        "on-surface": "#231a11",
+                        "on-tertiary-fixed": "#291800",
+                        "primary-fixed": "#ffdbca",
+                        "surface": "#fff8f4",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#e8d7c9",
+                        "tertiary": "#745a34",
+                        "on-surface-variant": "#554339",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#f1dfd1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#6a635b",
+                        "surface-container": "#fdebdc",
+                        "surface-container-highest": "#f1dfd1",
+                        "secondary-fixed": "#ebe1d6",
+                        "inverse-surface": "#392f25",
+                        "on-tertiary-fixed-variant": "#5a421f",
+                        "surface-container-low": "#fff1e7",
+                        "inverse-primary": "#ffb690",
+                        "outline": "#897268",
+                        "primary-fixed-dim": "#ffb690",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fff8f4",
+                        "secondary": "#645d55",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#4c463e",
+                        "surface-tint": "#9b4509",
+                        "inverse-on-surface": "#ffeee0",
+                        "surface-bright": "#fff8f4",
+                        "primary-container": "#e07a3e",
+                        "secondary-fixed-dim": "#cec5bb",
+                        "tertiary-container": "#af9066",
+                        "tertiary-fixed": "#ffddb2",
+                        "on-primary-container": "#501f00",
+                        "secondary-container": "#ebe1d6",
+                        "on-primary-fixed": "#331100"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "16px",
+                        "xs": "4px",
+                        "max-width-content": "1200px",
+                        "margin-desktop": "auto",
+                        "lg": "40px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "sm": "12px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+                        "display": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface h-full flex flex-col text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-base w-full bg-surface-container-low dark:bg-surface-container-low sticky">
+<div class="font-display text-headline-md text-primary dark:text-primary-fixed-dim">
+            Homely
+        </div>
+<div class="flex items-center gap-4">
+<button aria-label="help" class="p-2 rounded-full hover:bg-surface-variant/50 transition-colors active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button aria-label="notifications" class="p-2 rounded-full hover:bg-surface-variant/50 transition-colors active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-surface-container-highest cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A smiling young Salvadoran woman looking directly at the camera, wearing casual modern clothing. She is standing outdoors with a soft-focus background of lush green trees and warm sunlight. The image has a bright, approachable, and friendly tone, fitting for a user profile photo on a community service platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2StuPhAi949Fj-lXQEWIvVnG0bEBo25KORVG0gY7Bo2j2QwqRtVSZQEkrPpyJabfatmMxE1hdD6r8BjJz5ElZVJN1jQaOzJaXyCbDQZXgCNfl64JM2Ud-kuqYrwf1JH1idzS_UJss0rvuIy-HtyusmRf_0XJn2fq4TU46MHS92V2iV_zqshmBdySbUaQL16IQfJbMh5xTIvGjy4Sqo08DQRLSWGQg8ZKJHw7ZXYdfgylq4zrGx-WiwA"/>
+</div>
+<a href="../index.html" class="ml-2 font-label-md text-label-md text-primary font-bold hover:bg-surface-container-high px-4 py-2 rounded-lg transition-colors active:scale-95 duration-150">Cerrar Sesión</a>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto px-margin-mobile md:px-margin-desktop max-w-[max-width-content] mx-auto w-full py-md flex flex-col gap-md hide-scrollbar pb-32">
+<!-- Bot Message -->
+<div class="flex gap-sm items-start max-w-[85%] md:max-w-2xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex-shrink-0 flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-on-surface shadow-sm">
+<p class="font-body-md text-body-md">
+                    ¡Hola! Soy el asistente virtual de Homely. ¿En qué puedo ayudarte hoy?
+                </p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-sm items-start justify-end max-w-[85%] md:max-w-2xl self-end">
+<div class="bg-primary text-on-primary rounded-2xl rounded-tr-sm p-4 shadow-sm">
+<p class="font-body-md text-body-md">
+                    Hola, tengo una duda sobre mi última solicitud de plomería.
+                </p>
+</div>
+</div>
+<!-- Bot Message with Card -->
+<div class="flex gap-sm items-start max-w-[95%] md:max-w-2xl">
+<div class="w-10 h-10 rounded-full bg-primary-container flex-shrink-0 flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-highest rounded-2xl rounded-tl-sm p-4 text-on-surface shadow-sm">
+<p class="font-body-md text-body-md">
+                        Claro, aquí tienes la información de tu solicitud actual:
+                    </p>
+</div>
+<!-- Service Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-surface-variant flex flex-col gap-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="plumbing">plumbing</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Reparación de Tubería</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hoy, 14:30 PM</p>
+</div>
+</div>
+<div class="h-px bg-surface-variant w-full my-1"></div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<img alt="Técnico Carlos M." class="w-8 h-8 rounded-full object-cover border border-surface-variant" data-alt="A close-up portrait of a middle-aged Salvadoran man, smiling warmly. He is wearing a clean, practical work uniform in a soft earthy color. The background is slightly blurred, showing a neat residential street in El Salvador. The lighting is natural and inviting, conveying trust and professionalism for a service technician profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRRGbcGMFMf6pfdsmf6LRvpWBB7hwRcQGf4HvnUD55W1u5ZFOaIhPBMuVi3oRd7iR0Td4FGnMKqkGqGiHsvUm7klLJkpObX77QihNZkYW2bLRuBdC4Q0Zj6I0QkMFn0Hvfcw9dfqsqV4oJrSOR5wpbOba3gzfoQVyvx3RrvqNwAZT0LF4X4m3pxzNzGrqwbjAv4HFglfmCyqjUWgwEQJiM1QHzbyc6BTJaNmk5c4dKT4dJEBc99Dy-KQ"/>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Carlos M.</p>
+<div class="flex items-center gap-1 text-[#4a7c59]"> <!-- Sage Green for trust -->
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+<span class="text-[10px] font-semibold">Verificado</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-fixed px-3 py-1 rounded-full">
+<span class="font-label-sm text-label-sm text-on-primary-fixed">En Proceso</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Chat Input Footer -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-md border-t border-surface-variant py-4 px-margin-mobile md:px-margin-desktop z-40">
+<div class="max-w-[max-width-content] mx-auto flex items-center gap-3">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant/50 focus:outline-none">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-full py-3 px-6 font-body-md text-body-md text-on-surface placeholder-on-surface-variant shadow-sm transition-shadow" placeholder="Escribe un mensaje..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors p-3 rounded-full shadow-sm flex items-center justify-center focus:outline-none active:scale-95">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</footer>
+<script src="prototype.js?v=20260831-2"></script>
+</body></html>
